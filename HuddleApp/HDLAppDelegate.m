@@ -6,16 +6,32 @@
 //  Copyright (c) 2014 Michael Weingert. All rights reserved.
 //
 
+#import "HDLMainScrollViewController.h"
 #import "HDLAppDelegate.h"
 
 @implementation HDLAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+  HDLMainScrollViewController * mainScrollController = [[HDLMainScrollViewController alloc] init];
+  
+  UINavigationController * navigationController = [[UINavigationController alloc] initWithRootViewController:mainScrollController];
+  
+  navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.25 green:0.1 blue:0 alpha:1.0];
+  navigationController.navigationBar.translucent = NO;
+  
+  [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+  
+  [[UINavigationBar appearance] setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:
+                                                         [UIFont fontWithName:@"HelveticaNeue-Light" size:23.0], NSFontAttributeName, [UIColor whiteColor], NSForegroundColorAttributeName, nil]];
+  
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+  
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    [self.window setRootViewController:navigationController];
     return YES;
 }
 

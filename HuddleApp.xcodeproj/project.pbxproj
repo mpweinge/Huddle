@@ -19,6 +19,11 @@
 		A6A080AD1A1B46FA002765D2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6A080951A1B46FA002765D2 /* UIKit.framework */; };
 		A6A080B51A1B46FA002765D2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A6A080B31A1B46FA002765D2 /* InfoPlist.strings */; };
 		A6A080B71A1B46FA002765D2 /* HuddleAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A080B61A1B46FA002765D2 /* HuddleAppTests.m */; };
+		A6A080C21A1B4722002765D2 /* HDLMainScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A080C11A1B4722002765D2 /* HDLMainScrollView.m */; };
+		A6A080C51A1B4737002765D2 /* HDLMainScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A080C41A1B4737002765D2 /* HDLMainScrollViewController.m */; };
+		A6A080C81A1BD73C002765D2 /* HDLCalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A080C71A1BD73C002765D2 /* HDLCalendarViewController.m */; };
+		A6A080CB1A1BDA64002765D2 /* HDLFriendSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A080CA1A1BDA64002765D2 /* HDLFriendSelectViewController.m */; };
+		A6A080CE1A1BDB7D002765D2 /* HDLEventsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A080CD1A1BDB7D002765D2 /* HDLEventsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +53,16 @@
 		A6A080B21A1B46FA002765D2 /* HuddleAppTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HuddleAppTests-Info.plist"; sourceTree = "<group>"; };
 		A6A080B41A1B46FA002765D2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A6A080B61A1B46FA002765D2 /* HuddleAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HuddleAppTests.m; sourceTree = "<group>"; };
+		A6A080C01A1B4722002765D2 /* HDLMainScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDLMainScrollView.h; sourceTree = "<group>"; };
+		A6A080C11A1B4722002765D2 /* HDLMainScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDLMainScrollView.m; sourceTree = "<group>"; };
+		A6A080C31A1B4737002765D2 /* HDLMainScrollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDLMainScrollViewController.h; sourceTree = "<group>"; };
+		A6A080C41A1B4737002765D2 /* HDLMainScrollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDLMainScrollViewController.m; sourceTree = "<group>"; };
+		A6A080C61A1BD73C002765D2 /* HDLCalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDLCalendarViewController.h; sourceTree = "<group>"; };
+		A6A080C71A1BD73C002765D2 /* HDLCalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDLCalendarViewController.m; sourceTree = "<group>"; };
+		A6A080C91A1BDA64002765D2 /* HDLFriendSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDLFriendSelectViewController.h; sourceTree = "<group>"; };
+		A6A080CA1A1BDA64002765D2 /* HDLFriendSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDLFriendSelectViewController.m; sourceTree = "<group>"; };
+		A6A080CC1A1BDB7D002765D2 /* HDLEventsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDLEventsViewController.h; sourceTree = "<group>"; };
+		A6A080CD1A1BDB7D002765D2 /* HDLEventsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDLEventsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,8 +124,18 @@
 			children = (
 				A6A080A01A1B46FA002765D2 /* HDLAppDelegate.h */,
 				A6A080A11A1B46FA002765D2 /* HDLAppDelegate.m */,
+				A6A080C01A1B4722002765D2 /* HDLMainScrollView.h */,
+				A6A080C11A1B4722002765D2 /* HDLMainScrollView.m */,
 				A6A080A31A1B46FA002765D2 /* Images.xcassets */,
 				A6A080981A1B46FA002765D2 /* Supporting Files */,
+				A6A080C31A1B4737002765D2 /* HDLMainScrollViewController.h */,
+				A6A080C41A1B4737002765D2 /* HDLMainScrollViewController.m */,
+				A6A080C61A1BD73C002765D2 /* HDLCalendarViewController.h */,
+				A6A080C71A1BD73C002765D2 /* HDLCalendarViewController.m */,
+				A6A080C91A1BDA64002765D2 /* HDLFriendSelectViewController.h */,
+				A6A080CA1A1BDA64002765D2 /* HDLFriendSelectViewController.m */,
+				A6A080CC1A1BDB7D002765D2 /* HDLEventsViewController.h */,
+				A6A080CD1A1BDB7D002765D2 /* HDLEventsViewController.m */,
 			);
 			path = HuddleApp;
 			sourceTree = "<group>";
@@ -242,6 +267,11 @@
 			files = (
 				A6A0809E1A1B46FA002765D2 /* main.m in Sources */,
 				A6A080A21A1B46FA002765D2 /* HDLAppDelegate.m in Sources */,
+				A6A080C21A1B4722002765D2 /* HDLMainScrollView.m in Sources */,
+				A6A080C51A1B4737002765D2 /* HDLMainScrollViewController.m in Sources */,
+				A6A080C81A1BD73C002765D2 /* HDLCalendarViewController.m in Sources */,
+				A6A080CB1A1BDA64002765D2 /* HDLFriendSelectViewController.m in Sources */,
+				A6A080CE1A1BDB7D002765D2 /* HDLEventsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -438,6 +468,7 @@
 				A6A080BC1A1B46FA002765D2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A6A080BD1A1B46FA002765D2 /* Build configuration list for PBXNativeTarget "HuddleAppTests" */ = {
 			isa = XCConfigurationList;
@@ -446,6 +477,7 @@
 				A6A080BF1A1B46FA002765D2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
