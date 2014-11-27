@@ -16,6 +16,8 @@
   
   UILabel * _dateLabel;
   UILabel *_attendingPeopleLabel;
+  
+  UIImageView *_backgroundImage;
 }
 
 - (void)awakeFromNib {
@@ -38,6 +40,11 @@
   
   if (self)
   {
+    
+    _backgroundImage = [[UIImageView alloc] initWithFrame:CGRectMake(10, 10, 300, 180)];
+    _backgroundImage.image = [UIImage imageNamed:@"Beach_iOS.jpg"];
+    [self addSubview:_backgroundImage];
+    
     _dateString = date;
     _attendingPeople = attending;
     _backgroundImageDescriptor = background;
@@ -46,12 +53,15 @@
     _dateLabel.textAlignment = NSTextAlignmentCenter;
     _dateLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:25.0];
     _dateLabel.text = _dateString;
+    _dateLabel.textColor = [UIColor whiteColor];
     [self addSubview:_dateLabel];
     
-    _attendingPeopleLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 70, 350, 100)];
+    _attendingPeopleLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 120, 350, 100)];
     _attendingPeopleLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:12.0];
     _attendingPeopleLabel.text = _attendingPeople;
+    _attendingPeopleLabel.textColor = [UIColor whiteColor];
     [self addSubview:_attendingPeopleLabel];
+    
   }
   
   return self;

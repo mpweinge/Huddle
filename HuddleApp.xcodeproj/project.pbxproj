@@ -10,6 +10,7 @@
 		A6400ADF1A266F4200D939D4 /* HDLHomeScreenCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A6400ADE1A266F4200D939D4 /* HDLHomeScreenCell.m */; };
 		A6400AE21A26853900D939D4 /* HDLEventTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A6400AE11A26853900D939D4 /* HDLEventTableViewCell.m */; };
 		A6400AE51A26880400D939D4 /* HDLEventDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6400AE41A26880400D939D4 /* HDLEventDetailViewController.m */; };
+		A6400AE91A26F47C00D939D4 /* Beach_iOS.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A6400AE81A26F47C00D939D4 /* Beach_iOS.jpg */; };
 		A6A080921A1B46FA002765D2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6A080911A1B46FA002765D2 /* Foundation.framework */; };
 		A6A080941A1B46FA002765D2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6A080931A1B46FA002765D2 /* CoreGraphics.framework */; };
 		A6A080961A1B46FA002765D2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6A080951A1B46FA002765D2 /* UIKit.framework */; };
@@ -46,6 +47,7 @@
 		A6400AE11A26853900D939D4 /* HDLEventTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDLEventTableViewCell.m; sourceTree = "<group>"; };
 		A6400AE31A26880400D939D4 /* HDLEventDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDLEventDetailViewController.h; sourceTree = "<group>"; };
 		A6400AE41A26880400D939D4 /* HDLEventDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDLEventDetailViewController.m; sourceTree = "<group>"; };
+		A6400AE81A26F47C00D939D4 /* Beach_iOS.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Beach_iOS.jpg; sourceTree = "<group>"; };
 		A6A0808E1A1B46FA002765D2 /* HuddleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HuddleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6A080911A1B46FA002765D2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A6A080931A1B46FA002765D2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -145,6 +147,7 @@
 				A6A080CA1A1BDA64002765D2 /* HDLFriendSelectViewController.m */,
 				A6A080CC1A1BDB7D002765D2 /* HDLEventsViewController.h */,
 				A6A080CD1A1BDB7D002765D2 /* HDLEventsViewController.m */,
+				A6400AE81A26F47C00D939D4 /* Beach_iOS.jpg */,
 				A6400ADD1A266F4200D939D4 /* HDLHomeScreenCell.h */,
 				A6400ADE1A266F4200D939D4 /* HDLHomeScreenCell.m */,
 				A6400AE01A26853900D939D4 /* HDLEventTableViewCell.h */,
@@ -261,6 +264,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A6A0809C1A1B46FA002765D2 /* InfoPlist.strings in Resources */,
+				A6400AE91A26F47C00D939D4 /* Beach_iOS.jpg in Resources */,
 				A6A080A41A1B46FA002765D2 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

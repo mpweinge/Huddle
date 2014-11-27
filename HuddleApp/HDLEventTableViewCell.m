@@ -17,6 +17,10 @@
   UILabel *_locationLabel;
   UIScrollView * _attendingScrollView;
   NSArray * _attendingList;
+  
+  UIImageView *_backgroundImage;
+  
+  UIImageView *_circleTest;
 }
 
 - (void)awakeFromNib {
@@ -39,20 +43,34 @@
   self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
   if (self)
   {
+    
+    _backgroundImage = [[UIImageView alloc] initWithFrame:CGRectMake(10, 10, 300, 180)];
+    _backgroundImage.image = [UIImage imageNamed:@"Beach_iOS.jpg"];
+    [self addSubview:_backgroundImage];
+    
+    _circleTest = [[UIImageView alloc] initWithFrame:CGRectMake(12, 195, 40, 40)];
+    _circleTest.image = [UIImage imageNamed:@"Beach_iOS.jpg"];
+    _circleTest.layer.cornerRadius = 20;
+    _circleTest.layer.masksToBounds = YES;
+    _circleTest.layer.borderWidth = 0;
+    [self addSubview:_circleTest];
+    
     _title = title;
     _location = location;
     _attendingList = attendingList;
     
-    _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, -10, 300, 50)];
+    _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(12, 00, 300, 50)];
     _titleLabel.textAlignment = NSTextAlignmentLeft;
     _titleLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:19.0];
     _titleLabel.text = _title;
+    _titleLabel.textColor = [UIColor whiteColor];
     [self addSubview:_titleLabel];
     
-    _locationLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, 300, 50)];
+    _locationLabel = [[UILabel alloc] initWithFrame:CGRectMake(12, 20, 300, 50)];
     _locationLabel.textAlignment = NSTextAlignmentLeft;
     _locationLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:12.0];
     _locationLabel.text = _location;
+    _locationLabel.textColor = [UIColor whiteColor];
     [self addSubview:_locationLabel];
   }
   return self;
