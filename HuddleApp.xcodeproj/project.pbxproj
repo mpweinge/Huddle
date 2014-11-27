@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A6400ADF1A266F4200D939D4 /* HDLHomeScreenCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A6400ADE1A266F4200D939D4 /* HDLHomeScreenCell.m */; };
+		A6400AE21A26853900D939D4 /* HDLEventTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A6400AE11A26853900D939D4 /* HDLEventTableViewCell.m */; };
+		A6400AE51A26880400D939D4 /* HDLEventDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6400AE41A26880400D939D4 /* HDLEventDetailViewController.m */; };
 		A6A080921A1B46FA002765D2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6A080911A1B46FA002765D2 /* Foundation.framework */; };
 		A6A080941A1B46FA002765D2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6A080931A1B46FA002765D2 /* CoreGraphics.framework */; };
 		A6A080961A1B46FA002765D2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6A080951A1B46FA002765D2 /* UIKit.framework */; };
@@ -37,6 +40,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A6400ADD1A266F4200D939D4 /* HDLHomeScreenCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDLHomeScreenCell.h; sourceTree = "<group>"; };
+		A6400ADE1A266F4200D939D4 /* HDLHomeScreenCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDLHomeScreenCell.m; sourceTree = "<group>"; };
+		A6400AE01A26853900D939D4 /* HDLEventTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDLEventTableViewCell.h; sourceTree = "<group>"; };
+		A6400AE11A26853900D939D4 /* HDLEventTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDLEventTableViewCell.m; sourceTree = "<group>"; };
+		A6400AE31A26880400D939D4 /* HDLEventDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDLEventDetailViewController.h; sourceTree = "<group>"; };
+		A6400AE41A26880400D939D4 /* HDLEventDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDLEventDetailViewController.m; sourceTree = "<group>"; };
 		A6A0808E1A1B46FA002765D2 /* HuddleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HuddleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6A080911A1B46FA002765D2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A6A080931A1B46FA002765D2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -136,6 +145,12 @@
 				A6A080CA1A1BDA64002765D2 /* HDLFriendSelectViewController.m */,
 				A6A080CC1A1BDB7D002765D2 /* HDLEventsViewController.h */,
 				A6A080CD1A1BDB7D002765D2 /* HDLEventsViewController.m */,
+				A6400ADD1A266F4200D939D4 /* HDLHomeScreenCell.h */,
+				A6400ADE1A266F4200D939D4 /* HDLHomeScreenCell.m */,
+				A6400AE01A26853900D939D4 /* HDLEventTableViewCell.h */,
+				A6400AE11A26853900D939D4 /* HDLEventTableViewCell.m */,
+				A6400AE31A26880400D939D4 /* HDLEventDetailViewController.h */,
+				A6400AE41A26880400D939D4 /* HDLEventDetailViewController.m */,
 			);
 			path = HuddleApp;
 			sourceTree = "<group>";
@@ -268,10 +283,13 @@
 				A6A0809E1A1B46FA002765D2 /* main.m in Sources */,
 				A6A080A21A1B46FA002765D2 /* HDLAppDelegate.m in Sources */,
 				A6A080C21A1B4722002765D2 /* HDLMainScrollView.m in Sources */,
+				A6400AE51A26880400D939D4 /* HDLEventDetailViewController.m in Sources */,
 				A6A080C51A1B4737002765D2 /* HDLMainScrollViewController.m in Sources */,
 				A6A080C81A1BD73C002765D2 /* HDLCalendarViewController.m in Sources */,
 				A6A080CB1A1BDA64002765D2 /* HDLFriendSelectViewController.m in Sources */,
 				A6A080CE1A1BDB7D002765D2 /* HDLEventsViewController.m in Sources */,
+				A6400AE21A26853900D939D4 /* HDLEventTableViewCell.m in Sources */,
+				A6400ADF1A266F4200D939D4 /* HDLHomeScreenCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

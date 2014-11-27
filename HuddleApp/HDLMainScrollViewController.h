@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HDLMainScrollViewController : UIViewController
+@interface HDLMainScrollViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @end

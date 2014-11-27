@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HDLEventsViewController : UIViewController
+@interface HDLEventsViewController : UIViewController < UITableViewDataSource, UITableViewDelegate>
+
+-(instancetype) initWithDate:(NSString *)date huddleNum:(int) huddleNum;
 
 @end
