@@ -6,8 +6,18 @@
 //  Copyright (c) 2014 Michael Weingert. All rights reserved.
 //
 
+
 #import <UIKit/UIKit.h>
 
-@interface HDLCalendarViewController : UIViewController
+#import "JTCalendar.h"
+
+@interface HDLCalendarViewController : UIViewController<JTCalendarDataSource>
+
+@property (weak, nonatomic) IBOutlet JTCalendarMenuView *calendarMenuView;
+@property (weak, nonatomic) IBOutlet JTCalendarContentView *calendarContentView;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *calendarContentViewHeight;
+
+@property (strong, nonatomic) JTCalendar *calendar;
 
 @end
