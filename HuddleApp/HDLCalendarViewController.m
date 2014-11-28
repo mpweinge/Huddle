@@ -6,49 +6,9 @@
 //  Copyright (c) 2014 Michael Weingert. All rights reserved.
 //
 
-// Old code
-/*
 #import "HDLCalendarViewController.h"
 #import "HDLFriendSelectViewController.h"
-
-@implementation HDLCalendarViewController
-
--(id) init
-{
-  //self = [super init];
-  if (self)
-  {
-    self.title = @"Calendar";
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFastForward target:self action:@selector(nextClicked:)];
-  }
-  return self;
-}
-
--(void) nextClicked:(UIResponder *)responder
-{
-  HDLFriendSelectViewController * friendViewController = [[HDLFriendSelectViewController alloc] init];
-  [self.navigationController pushViewController:friendViewController animated:YES];
-}
-
--(void) viewDidLoad
-{
-  UILabel * calendarLabel = [[UILabel alloc] init];
-  calendarLabel.text = @"I'm a Calendar";
-  calendarLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:20.0];
-  calendarLabel.center = CGPointMake(50, 150);
-  calendarLabel.textColor = [UIColor blackColor];
-  [calendarLabel sizeToFit];
-  [self.view addSubview:calendarLabel];
-}
-
-@end
-*/
-
-//  Created by Jonathan Tribouharet.
-//
-
-#import "HDLCalendarViewController.h"
-#import "HDLFriendSelectViewController.h"
+#import "JTCalendarMenuView.h"
 
 @interface HDLCalendarViewController ()
 
@@ -80,8 +40,6 @@
     
     self.calendar = [JTCalendar new];
     
-
-    
     // All modifications on calendarAppearance have to be done before setMenuMonthsView and setContentView
     // Or you will have to call reloadAppearance
     {
@@ -89,10 +47,21 @@
         self.calendar.calendarAppearance.dayCircleRatio = 9. / 10.;
         self.calendar.calendarAppearance.ratioContentMenu = 1.;
     }
-    
-    [self.calendar setMenuMonthsView:self.calendarMenuView];
-    [self.calendar setContentView:self.calendarContentView];
-    [self.calendar setDataSource:self];
+  
+  self.calendarMenuView = [[JTCalendarMenuView alloc] initWithFrame:CGRectMake(0, 0, 300, 50)];
+  self.calendarMenuView.calendarManager = self.calendar;
+  
+  self.calendarContentView = [[JTCalendarContentView alloc] initWithFrame:CGRectMake(0, 50, 300, 200)];
+  self.calendarContentView.calendarManager = self.calendar;
+  
+  [self.view addSubview:self.calendarMenuView];
+  [self.view addSubview:self.calendarContentView];
+  
+  [self.calendar setMenuMonthsView:self.calendarMenuView];
+  [self.calendar setContentView:self.calendarContentView];
+  [self.calendar setDataSource:self];
+  
+  [self.calendar reloadAppearance];
     
 }
 
@@ -138,11 +107,11 @@
         newHeight = 75.;
     }
     
-    [UIView animateWithDuration:.5
+    /*[UIView animateWithDuration:.5
                      animations:^{
                          self.calendarContentViewHeight.constant = newHeight;
                          [self.view layoutIfNeeded];
-                     }];
+                     }];*/
     
     [UIView animateWithDuration:.25
                      animations:^{

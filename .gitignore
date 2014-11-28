@@ -1,3 +1,9 @@
 *.xcuserdata*
 *.xcworkspace*
 *.xcbkptlist
+
+JTCalendar-test/*
+
+Podfile
+
+Podfile.lock

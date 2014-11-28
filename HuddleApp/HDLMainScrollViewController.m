@@ -8,7 +8,6 @@
 
 #import "HDLMainScrollViewController.h"
 #import "HDLCalendarViewController.h"
-#import "HDLMainScrollView.h"
 #import "HDLHomeScreenCell.h"
 #import "HDLEventsViewController.h"
 
@@ -26,15 +25,15 @@
   mainTableView.delegate = self;
   self.title = @"Huddle";
   
-  UIButton * createHuddleButton = [UIButton buttonWithType:UIButtonTypeSystem];
+  /*UIButton * createHuddleButton = [UIButton buttonWithType:UIButtonTypeSystem];
   [createHuddleButton setTitle:@"Create Huddle" forState:UIControlStateNormal];
   [createHuddleButton sizeToFit];
   createHuddleButton.center = CGPointMake([mainScreen bounds].size.width / 2, [mainScreen bounds].size.height - 100);
 
   [createHuddleButton addTarget:self action:@selector(createClicked:) forControlEvents:UIControlEventTouchUpInside];
-  [self.view addSubview:createHuddleButton];
+  [self.view addSubview:createHuddleButton];*/
   
-  self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc ] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(AddClicked)];
+  self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc ] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(createClicked:)];
   self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(EditClicked)];
   
   return self;
