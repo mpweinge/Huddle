@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HDLFriendSelectViewController : UIViewController
+@interface HDLFriendSelectViewController : UIViewController < UITableViewDataSource, UITableViewDelegate>
 
 @end
