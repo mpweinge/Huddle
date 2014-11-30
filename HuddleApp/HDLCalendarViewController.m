@@ -49,10 +49,10 @@
         self.calendar.calendarAppearance.ratioContentMenu = 1.;
     }
   
-  self.calendarMenuView = [[JTCalendarMenuView alloc] initWithFrame:CGRectMake(15, 0, 300, 50)];
+  self.calendarMenuView = [[JTCalendarMenuView alloc] initWithFrame:CGRectMake(0, 0, 320, 50)];
   self.calendarMenuView.calendarManager = self.calendar;
   
-  self.calendarContentView = [[JTCalendarContentView alloc] initWithFrame:CGRectMake(15, 55, 300, 300)];
+  self.calendarContentView = [[JTCalendarContentView alloc] initWithFrame:CGRectMake(0, 55, 320, 300)];
   self.calendarContentView.calendarManager = self.calendar;
   
   [self.view addSubview:self.calendarMenuView];
@@ -61,9 +61,14 @@
   [self.calendar setMenuMonthsView:self.calendarMenuView];
   [self.calendar setContentView:self.calendarContentView];
   [self.calendar setDataSource:self];
-    
+  
+  // Add horizontal line between calendar and time of day
+  UIView * separator = [[UIView alloc] initWithFrame:CGRectMake(0, 360, 320, 1)];
+  separator.backgroundColor = [UIColor colorWithWhite:0.7 alpha:1];
+  [self.view addSubview:separator];
+  
   // Buttons to choose time of day
-  CGRect myFrame = CGRectMake(110.0f, 300.0f, 100.0f, 240.0f); // Will be rotated
+  CGRect myFrame = CGRectMake(110.0f, 310.0f, 100.0f, 240.0f); // Will be rotated
   NSArray *mySegments = [[NSArray alloc] initWithObjects: @"Morning", @"Afternoon", @"Evening", nil];
   self.timeOfDaySelection = [[UISegmentedControl alloc] initWithItems:mySegments];
   [self.timeOfDaySelection setMultipleTouchEnabled:TRUE];
