@@ -15,6 +15,8 @@
 
 @property (strong, nonatomic) JTCalendarMenuView *calendarMenuView;
 @property (strong, nonatomic) JTCalendarContentView *calendarContentView;
+@property (nonatomic, strong) UISegmentedControl *timeOfDaySelection;
+
 
 @property (strong, nonatomic) JTCalendar *calendar;
 

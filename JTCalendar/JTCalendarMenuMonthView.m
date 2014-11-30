@@ -61,7 +61,7 @@
         monthIndex += 12;
     }
     
-    textLabel.text = [[dateFormatter standaloneMonthSymbols][monthIndex - 1] capitalizedString];
+    textLabel.text = [[dateFormatter shortStandaloneMonthSymbols][monthIndex - 1] capitalizedString];
 }
 
 - (void)layoutSubviews

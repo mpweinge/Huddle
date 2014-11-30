@@ -23,9 +23,11 @@
 
 - (void)setDefaultValues
 {
+    // Start in week mode
     self.isWeekMode = NO;
     
-    self.weekDayFormat = JTCalendarWeekDayFormatShort;
+    // Change day view here
+    self.weekDayFormat = JTCalendarWeekDayFormatSingle;
     self.useCacheSystem = YES;
     
     self.ratioContentMenu = 2.;
@@ -34,9 +36,9 @@
     self.dayCircleRatio = 1.;
     self.dayDotRatio = 1. / 9.;
     
-    self.menuMonthTextFont = [UIFont systemFontOfSize:17.];
-    self.weekDayTextFont = [UIFont systemFontOfSize:11];
-    self.dayTextFont = [UIFont systemFontOfSize:[UIFont systemFontSize]];
+    self.menuMonthTextFont = [UIFont systemFontOfSize:30];
+    self.weekDayTextFont = [UIFont systemFontOfSize:20];
+    self.dayTextFont = [UIFont systemFontOfSize:20.];
     
     self.menuMonthTextColor = [UIColor blackColor];
     self.weekDayTextColor = [UIColor colorWithRed:152./256. green:147./256. blue:157./256. alpha:1.];

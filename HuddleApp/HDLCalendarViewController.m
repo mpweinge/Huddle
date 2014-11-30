@@ -39,6 +39,7 @@
     [super viewDidLoad];
     
     self.calendar = [JTCalendar new];
+
     
     // All modifications on calendarAppearance have to be done before setMenuMonthsView and setContentView
     // Or you will have to call reloadAppearance
@@ -48,10 +49,10 @@
         self.calendar.calendarAppearance.ratioContentMenu = 1.;
     }
   
-  self.calendarMenuView = [[JTCalendarMenuView alloc] initWithFrame:CGRectMake(0, 0, 300, 50)];
+  self.calendarMenuView = [[JTCalendarMenuView alloc] initWithFrame:CGRectMake(15, 0, 300, 50)];
   self.calendarMenuView.calendarManager = self.calendar;
   
-  self.calendarContentView = [[JTCalendarContentView alloc] initWithFrame:CGRectMake(0, 50, 300, 200)];
+  self.calendarContentView = [[JTCalendarContentView alloc] initWithFrame:CGRectMake(15, 55, 300, 300)];
   self.calendarContentView.calendarManager = self.calendar;
   
   [self.view addSubview:self.calendarMenuView];
@@ -60,9 +61,51 @@
   [self.calendar setMenuMonthsView:self.calendarMenuView];
   [self.calendar setContentView:self.calendarContentView];
   [self.calendar setDataSource:self];
+    
+  // Buttons to choose time of day
+  CGRect myFrame = CGRectMake(110.0f, 300.0f, 100.0f, 240.0f); // Will be rotated
+  NSArray *mySegments = [[NSArray alloc] initWithObjects: @"Morning", @"Afternoon", @"Evening", nil];
+  self.timeOfDaySelection = [[UISegmentedControl alloc] initWithItems:mySegments];
+  [self.timeOfDaySelection setMultipleTouchEnabled:TRUE];
+  self.timeOfDaySelection.frame = myFrame;
+  [self.timeOfDaySelection addTarget:self action:@selector(chooseTimeOfDay:)
+                    forControlEvents:UIControlEventValueChanged];
+  [self.view addSubview:self.timeOfDaySelection];
+  
+  // Make it a vertical list
+  self.timeOfDaySelection.transform = CGAffineTransformMakeRotation(M_PI / 2.0);
+  NSArray *arr = [self.timeOfDaySelection subviews];
+  for (int i = 0; i < [arr count]; i++) {
+    UIView *v = (UIView*) [arr objectAtIndex:i];
+    NSArray *subarr = [v subviews];
+    for (int j = 0; j < [subarr count]; j++) {
+      if ([[subarr objectAtIndex:j] isKindOfClass:[UILabel class]]) {
+        UILabel *l = (UILabel*) [subarr objectAtIndex:j];
+        l.transform = CGAffineTransformMakeRotation(- M_PI / 2.0);
+      }
+    }
+  }
+  
   
   [self.calendar reloadAppearance];
+  
+}
+
+// Callback for time of day selection
+- (void) chooseTimeOfDay:(UISegmentedControl *)paramSender{
+  
+  //check if its the same control that triggered the change event
+  if ([paramSender isEqual:self.timeOfDaySelection]){
     
+    //get index position for the selected control
+    NSInteger selectedIndex = [paramSender selectedSegmentIndex];
+    
+    //get the Text for the segmented control that was selected
+    NSString *myChoice =
+    [paramSender titleForSegmentAtIndex:selectedIndex];
+    //let log this info to the console
+    NSLog(@"Segment at position %li with %@ text is selected", (long)selectedIndex, myChoice);
+  }
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -90,7 +133,7 @@
 
 - (BOOL)calendarHaveEvent:(JTCalendar *)calendar date:(NSDate *)date
 {
-    return (rand() % 10) == 1;
+  return 0;//(rand() % 10) == 1;
 }
 
 - (void)calendarDidDateSelected:(JTCalendar *)calendar date:(NSDate *)date

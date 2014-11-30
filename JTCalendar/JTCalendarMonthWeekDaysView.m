@@ -66,8 +66,8 @@ static NSArray *cacheDaysOfWeeks;
                 
         for(int i = 0; i < firstWeekday; ++i){
             id day = [days firstObject];
-            [days removeObjectAtIndex:0];
-            [days addObject:day];
+            //[days removeObjectAtIndex:0];
+            //[days addObject:day];
         }
     }
     
