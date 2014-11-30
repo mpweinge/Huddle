@@ -22,6 +22,12 @@
 		A6400B161A28545D00D939D4 /* JTCalendarMonthWeekDaysView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6400B081A28545D00D939D4 /* JTCalendarMonthWeekDaysView.m */; };
 		A6400B171A28545D00D939D4 /* JTCalendarWeekView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6400B0B1A28545D00D939D4 /* JTCalendarWeekView.m */; };
 		A6400B181A28545D00D939D4 /* JTCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6400B0D1A28545D00D939D4 /* JTCircleView.m */; };
+		A6400B1C1A2AF40D00D939D4 /* PlusNavButton.png in Resources */ = {isa = PBXBuildFile; fileRef = A6400B1B1A2AF40D00D939D4 /* PlusNavButton.png */; };
+		A6400B1E1A2AF69C00D939D4 /* PlusNavButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6400B1D1A2AF69C00D939D4 /* PlusNavButton@2x.png */; };
+		A6400B201A2AF76300D939D4 /* StarButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6400B1F1A2AF76300D939D4 /* StarButton@2x.png */; };
+		A6400B221A2AFEF000D939D4 /* HomeButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6400B211A2AFEF000D939D4 /* HomeButton@2x.png */; };
+		A6400B251A2B05F100D939D4 /* HDLFriendSelectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A6400B241A2B05F100D939D4 /* HDLFriendSelectCell.m */; };
+		A6400B291A2B249100D939D4 /* CheckmarkIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6400B281A2B249100D939D4 /* CheckmarkIcon@2x.png */; };
 		A6A080921A1B46FA002765D2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6A080911A1B46FA002765D2 /* Foundation.framework */; };
 		A6A080941A1B46FA002765D2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6A080931A1B46FA002765D2 /* CoreGraphics.framework */; };
 		A6A080961A1B46FA002765D2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6A080951A1B46FA002765D2 /* UIKit.framework */; };
@@ -81,6 +87,13 @@
 		A6400B0B1A28545D00D939D4 /* JTCalendarWeekView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JTCalendarWeekView.m; path = JTCalendar/JTCalendarWeekView.m; sourceTree = "<group>"; };
 		A6400B0C1A28545D00D939D4 /* JTCircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JTCircleView.h; path = JTCalendar/JTCircleView.h; sourceTree = "<group>"; };
 		A6400B0D1A28545D00D939D4 /* JTCircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JTCircleView.m; path = JTCalendar/JTCircleView.m; sourceTree = "<group>"; };
+		A6400B1B1A2AF40D00D939D4 /* PlusNavButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = PlusNavButton.png; path = HuddleApp/PlusNavButton.png; sourceTree = "<group>"; };
+		A6400B1D1A2AF69C00D939D4 /* PlusNavButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "PlusNavButton@2x.png"; path = "HuddleApp/PlusNavButton@2x.png"; sourceTree = "<group>"; };
+		A6400B1F1A2AF76300D939D4 /* StarButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "StarButton@2x.png"; path = "HuddleApp/StarButton@2x.png"; sourceTree = "<group>"; };
+		A6400B211A2AFEF000D939D4 /* HomeButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "HomeButton@2x.png"; path = "HuddleApp/HomeButton@2x.png"; sourceTree = "<group>"; };
+		A6400B231A2B05F100D939D4 /* HDLFriendSelectCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDLFriendSelectCell.h; sourceTree = "<group>"; };
+		A6400B241A2B05F100D939D4 /* HDLFriendSelectCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDLFriendSelectCell.m; sourceTree = "<group>"; };
+		A6400B281A2B249100D939D4 /* CheckmarkIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "CheckmarkIcon@2x.png"; path = "HuddleApp/CheckmarkIcon@2x.png"; sourceTree = "<group>"; };
 		A6A0808E1A1B46FA002765D2 /* HuddleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HuddleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6A080911A1B46FA002765D2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A6A080931A1B46FA002765D2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -156,6 +169,8 @@
 				A6400AEB1A284FDF00D939D4 /* HDLHomeScreenCell.m */,
 				A6400AED1A284FDF00D939D4 /* HDLEventTableViewCell.h */,
 				A6400AF01A284FDF00D939D4 /* HDLHomeScreenCell.h */,
+				A6400B231A2B05F100D939D4 /* HDLFriendSelectCell.h */,
+				A6400B241A2B05F100D939D4 /* HDLFriendSelectCell.m */,
 			);
 			name = ViewCells;
 			sourceTree = "<group>";
@@ -193,6 +208,11 @@
 		A6A080851A1B46FA002765D2 = {
 			isa = PBXGroup;
 			children = (
+				A6400B281A2B249100D939D4 /* CheckmarkIcon@2x.png */,
+				A6400B211A2AFEF000D939D4 /* HomeButton@2x.png */,
+				A6400B1B1A2AF40D00D939D4 /* PlusNavButton.png */,
+				A6400B1D1A2AF69C00D939D4 /* PlusNavButton@2x.png */,
+				A6400B1F1A2AF76300D939D4 /* StarButton@2x.png */,
 				A6400B1A1A28546900D939D4 /* JTCalendar */,
 				A6400AEC1A284FDF00D939D4 /* Beach_iOS.jpg */,
 				A6A080971A1B46FA002765D2 /* HuddleApp */,
@@ -342,7 +362,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				A6A0809C1A1B46FA002765D2 /* InfoPlist.strings in Resources */,
+				A6400B1C1A2AF40D00D939D4 /* PlusNavButton.png in Resources */,
 				A6400AF31A284FDF00D939D4 /* Beach_iOS.jpg in Resources */,
+				A6400B291A2B249100D939D4 /* CheckmarkIcon@2x.png in Resources */,
+				A6400B221A2AFEF000D939D4 /* HomeButton@2x.png in Resources */,
+				A6400B1E1A2AF69C00D939D4 /* PlusNavButton@2x.png in Resources */,
+				A6400B201A2AF76300D939D4 /* StarButton@2x.png in Resources */,
 				A6A080A41A1B46FA002765D2 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -365,6 +390,7 @@
 				A6400B101A28545D00D939D4 /* JTCalendarContentView.m in Sources */,
 				A6A0809E1A1B46FA002765D2 /* main.m in Sources */,
 				A6A080A21A1B46FA002765D2 /* HDLAppDelegate.m in Sources */,
+				A6400B251A2B05F100D939D4 /* HDLFriendSelectCell.m in Sources */,
 				A6400AF41A284FDF00D939D4 /* HDLEventDetailViewController.m in Sources */,
 				A6400B181A28545D00D939D4 /* JTCircleView.m in Sources */,
 				A6A080C51A1B4737002765D2 /* HDLMainScrollViewController.m in Sources */,
