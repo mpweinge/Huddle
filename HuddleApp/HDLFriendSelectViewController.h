@@ -10,4 +10,6 @@
 
 @interface HDLFriendSelectViewController : UIViewController < UITableViewDataSource, UITableViewDelegate>
 
+-(instancetype) initWithDate: (NSDate *) date selectedTime: (NSString *)time;
+
 @end

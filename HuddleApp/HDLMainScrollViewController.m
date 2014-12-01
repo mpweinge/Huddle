@@ -10,10 +10,12 @@
 #import "HDLCalendarViewController.h"
 #import "HDLHomeScreenCell.h"
 #import "HDLEventsViewController.h"
+#import "HDLHuddleObject.h"
+#import "HDLDatabaseManager.h"
 
 @implementation HDLMainScrollViewController
 {
-  
+  NSMutableArray *_huddles;
 }
 
 -(id) init {
@@ -45,7 +47,7 @@
   
   HDLHomeScreenCell * newCell;
   
-  if ([indexPath row] == 0)
+  /*if ([indexPath row] == 0)
   {
     //First one is the salsa dancing
     //Date = Friday, 11/14
@@ -70,7 +72,13 @@
                                             dateString:@"Sunday (11/16)"
                                        attendingString: @"Solo"
                                       backgroundString: @"Beach"];
-  }
+  }*/
+  HDLHuddleObject * currHuddle = (HDLHuddleObject *)_huddles[[indexPath row]];
+  newCell = [[HDLHomeScreenCell alloc] initWithStyle: UITableViewCellStyleDefault
+                                     reuseIdentifier:tableViewIdentifier
+                                          dateString:[currHuddle dateString]
+                                     attendingString: [currHuddle inviteesString]
+                                    backgroundString: @"Salsa"];
   
   return newCell;
 }
@@ -78,7 +86,7 @@
 - (NSInteger) tableView: (UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
   //Hardcoded here
-  return 3;
+  return [_huddles count];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -90,13 +98,20 @@
 {
   //From here load the huddle specific view (events view controller)
   HDLEventsViewController* huddleViewController;
-  if ([indexPath row] == 0) {
-    huddleViewController = [[HDLEventsViewController alloc] initWithDate:@"Friday (11/14)" huddleNum:0];
-  } else if ([indexPath row] == 1) {
-    huddleViewController = [[HDLEventsViewController alloc] initWithDate:@"Saturday (11/15)" huddleNum:1];
-  } else {
-    huddleViewController = [[HDLEventsViewController alloc] initWithDate:@"Sunday (11/16)" huddleNum:2];
-  }
+  
+  int i = [indexPath row];
+  
+  HDLHuddleObject * currHuddle = (HDLHuddleObject *)_huddles[i];
+  
+  NSDate * currDate = [currHuddle date];
+  NSArray * invitees = [currHuddle invitees];
+  
+  NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+  [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
+  
+  huddleViewController = [[HDLEventsViewController alloc]
+                          initWithDate: [dateFormatter stringFromDate:currDate]
+                          invitees:invitees];
   
   [self.navigationController pushViewController:huddleViewController animated:YES];
 }
@@ -109,7 +124,8 @@
 
 -(void) viewDidLoad
 {
-
+  //Time to read from database
+  _huddles = [[HDLDatabaseManager getSharedInstance] loadHuddles];
 }
 
 @end

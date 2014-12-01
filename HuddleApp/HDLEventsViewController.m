@@ -13,16 +13,16 @@
 @implementation HDLEventsViewController
 {
   NSString *_date;
-  int _huddleNum;
+  NSMutableSet * _invitees;
 }
 
--(instancetype) initWithDate:(NSString *)date huddleNum:(int) huddleNum
+-(instancetype) initWithDate:(NSString *)date invitees:(NSMutableSet *) invitees;
 {
   self = [super init];
   if (self)
   {
     _date = date;
-    _huddleNum = huddleNum;
+    _invitees = invitees;
     
     UIScreen * mainScreen = [UIScreen mainScreen];
     UITableView * mainTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, [mainScreen bounds].size.width, [mainScreen bounds].size.height - 100)];
@@ -42,6 +42,9 @@
 -(void) HomeClicked
 {
   [self.navigationController popToRootViewControllerAnimated:YES];
+  
+  //Save the thing (well update it)
+  
 }
 
 -(id) init {

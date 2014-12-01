@@ -11,6 +11,10 @@
 #import "JTCalendarMenuView.h"
 
 @interface HDLCalendarViewController ()
+{
+  NSDate *_selectedDate;
+  NSString *_selectedTime;
+}
 
 @end
 
@@ -30,7 +34,7 @@
 
 -(void) nextClicked:(UIResponder *)responder
 {
-    HDLFriendSelectViewController * friendViewController = [[HDLFriendSelectViewController alloc] init];
+  HDLFriendSelectViewController * friendViewController = [[HDLFriendSelectViewController alloc] initWithDate: _selectedDate selectedTime: _selectedTime];
     [self.navigationController pushViewController:friendViewController animated:YES];
 }
 
@@ -110,6 +114,8 @@
     [paramSender titleForSegmentAtIndex:selectedIndex];
     //let log this info to the console
     NSLog(@"Segment at position %li with %@ text is selected", (long)selectedIndex, myChoice);
+    
+    _selectedTime = myChoice;
   }
 }
 
@@ -144,6 +150,7 @@
 - (void)calendarDidDateSelected:(JTCalendar *)calendar date:(NSDate *)date
 {
     NSLog(@"Date: %@", date);
+  _selectedDate = date;
 }
 
 #pragma mark - Transition examples

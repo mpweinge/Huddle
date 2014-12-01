@@ -14,4 +14,6 @@
 
 -(void) toggleCheckmark;
 
+-(NSString *)name;
+
 @end

@@ -28,6 +28,9 @@
 		A6400B221A2AFEF000D939D4 /* HomeButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6400B211A2AFEF000D939D4 /* HomeButton@2x.png */; };
 		A6400B251A2B05F100D939D4 /* HDLFriendSelectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A6400B241A2B05F100D939D4 /* HDLFriendSelectCell.m */; };
 		A6400B291A2B249100D939D4 /* CheckmarkIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6400B281A2B249100D939D4 /* CheckmarkIcon@2x.png */; };
+		A6400B2C1A2BE7D600D939D4 /* HDLDatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A6400B2B1A2BE7D600D939D4 /* HDLDatabaseManager.m */; };
+		A6400B2F1A2BF81700D939D4 /* HDLHuddleObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A6400B2E1A2BF81700D939D4 /* HDLHuddleObject.m */; };
+		A6400B311A2C007000D939D4 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A6400B301A2C007000D939D4 /* libsqlite3.dylib */; };
 		A6A080921A1B46FA002765D2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6A080911A1B46FA002765D2 /* Foundation.framework */; };
 		A6A080941A1B46FA002765D2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6A080931A1B46FA002765D2 /* CoreGraphics.framework */; };
 		A6A080961A1B46FA002765D2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6A080951A1B46FA002765D2 /* UIKit.framework */; };
@@ -94,6 +97,11 @@
 		A6400B231A2B05F100D939D4 /* HDLFriendSelectCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDLFriendSelectCell.h; sourceTree = "<group>"; };
 		A6400B241A2B05F100D939D4 /* HDLFriendSelectCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDLFriendSelectCell.m; sourceTree = "<group>"; };
 		A6400B281A2B249100D939D4 /* CheckmarkIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "CheckmarkIcon@2x.png"; path = "HuddleApp/CheckmarkIcon@2x.png"; sourceTree = "<group>"; };
+		A6400B2A1A2BE7D600D939D4 /* HDLDatabaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDLDatabaseManager.h; sourceTree = "<group>"; };
+		A6400B2B1A2BE7D600D939D4 /* HDLDatabaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDLDatabaseManager.m; sourceTree = "<group>"; };
+		A6400B2D1A2BF81700D939D4 /* HDLHuddleObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDLHuddleObject.h; sourceTree = "<group>"; };
+		A6400B2E1A2BF81700D939D4 /* HDLHuddleObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDLHuddleObject.m; sourceTree = "<group>"; };
+		A6400B301A2C007000D939D4 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		A6A0808E1A1B46FA002765D2 /* HuddleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HuddleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6A080911A1B46FA002765D2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A6A080931A1B46FA002765D2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -126,6 +134,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6400B311A2C007000D939D4 /* libsqlite3.dylib in Frameworks */,
 				A6A080941A1B46FA002765D2 /* CoreGraphics.framework in Frameworks */,
 				A6A080961A1B46FA002765D2 /* UIKit.framework in Frameworks */,
 				A6A080921A1B46FA002765D2 /* Foundation.framework in Frameworks */,
@@ -234,6 +243,7 @@
 		A6A080901A1B46FA002765D2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A6400B301A2C007000D939D4 /* libsqlite3.dylib */,
 				A6A080911A1B46FA002765D2 /* Foundation.framework */,
 				A6A080931A1B46FA002765D2 /* CoreGraphics.framework */,
 				A6A080951A1B46FA002765D2 /* UIKit.framework */,
@@ -252,6 +262,10 @@
 				A6A080A11A1B46FA002765D2 /* HDLAppDelegate.m */,
 				A6A080A31A1B46FA002765D2 /* Images.xcassets */,
 				A6A080981A1B46FA002765D2 /* Supporting Files */,
+				A6400B2A1A2BE7D600D939D4 /* HDLDatabaseManager.h */,
+				A6400B2B1A2BE7D600D939D4 /* HDLDatabaseManager.m */,
+				A6400B2D1A2BF81700D939D4 /* HDLHuddleObject.h */,
+				A6400B2E1A2BF81700D939D4 /* HDLHuddleObject.m */,
 			);
 			path = HuddleApp;
 			sourceTree = "<group>";
@@ -394,12 +408,14 @@
 				A6400AF41A284FDF00D939D4 /* HDLEventDetailViewController.m in Sources */,
 				A6400B181A28545D00D939D4 /* JTCircleView.m in Sources */,
 				A6A080C51A1B4737002765D2 /* HDLMainScrollViewController.m in Sources */,
+				A6400B2C1A2BE7D600D939D4 /* HDLDatabaseManager.m in Sources */,
 				A6A080C81A1BD73C002765D2 /* HDLCalendarViewController.m in Sources */,
 				A6400B0E1A28545D00D939D4 /* JTCalendar.m in Sources */,
 				A6400B141A28545D00D939D4 /* JTCalendarMenuView.m in Sources */,
 				A6400B121A28545D00D939D4 /* JTCalendarDayView.m in Sources */,
 				A6A080CB1A1BDA64002765D2 /* HDLFriendSelectViewController.m in Sources */,
 				A6400B131A28545D00D939D4 /* JTCalendarMenuMonthView.m in Sources */,
+				A6400B2F1A2BF81700D939D4 /* HDLHuddleObject.m in Sources */,
 				A6400AF21A284FDF00D939D4 /* HDLHomeScreenCell.m in Sources */,
 				A6400B161A28545D00D939D4 /* JTCalendarMonthWeekDaysView.m in Sources */,
 				A6400B111A28545D00D939D4 /* JTCalendarDataCache.m in Sources */,

@@ -10,6 +10,6 @@
 
 @interface HDLEventsViewController : UIViewController < UITableViewDataSource, UITableViewDelegate>
 
--(instancetype) initWithDate:(NSString *)date huddleNum:(int) huddleNum;
+-(instancetype) initWithDate:(NSString *)date invitees:(NSMutableSet *) invitees;
 
 @end

@@ -11,6 +11,7 @@
 @implementation HDLFriendSelectCell
 {
   UILabel *_nameLabel;
+  NSString *_name;
   
   UIImageView *_checkmarkView;
   
@@ -32,6 +33,8 @@
   self = [super init];
   if (self)
   {
+    _name = name;
+    
     _nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, 350, 50)];
     _nameLabel.text = name;
     _nameLabel.font = [UIFont fontWithName:@"Helvetica Neue" size:19.0];
@@ -58,6 +61,11 @@
     bIsCheckSelected = true;
     _checkmarkView.alpha = 1.0;
   }
+}
+
+-(NSString *)name
+{
+  return _name;
 }
 
 @end

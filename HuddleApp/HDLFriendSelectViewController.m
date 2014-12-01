@@ -9,10 +9,17 @@
 #import "HDLFriendSelectViewController.h"
 #import "HDLEventsViewController.h"
 #import "HDLFriendSelectCell.h"
+#import "HDLDatabaseManager.h"
 
 @implementation HDLFriendSelectViewController
+{
+  NSDate *_selectedDate;
+  NSString *_selectedTime;
+  
+  NSMutableSet *_selectedRows;
+}
 
--(id) init
+-(instancetype) initWithDate: (NSDate *) date selectedTime: (NSString *)time
 {
   self = [super init];
   UIScreen * mainScreen = [UIScreen mainScreen];
@@ -30,8 +37,16 @@
   [createHuddleButton addTarget:self action:@selector(createClicked:) forControlEvents:UIControlEventTouchUpInside];
   [self.view addSubview:createHuddleButton];
   
-  //self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc ] initWithBarButtonSystemItem:UIBarButtonSystemItemUndo target:self action:@selector(BackClicked)];
-  //self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(EditClicked)];
+  _selectedDate = date;
+  _selectedTime = time;
+  _selectedRows = [NSMutableSet set];
+  
+  return self;
+}
+
+-(id) init
+{
+  assert(0);
   
   return self;
 }
@@ -43,7 +58,11 @@
 
 -(void) createClicked: (UIResponder *) responder
 {
-  HDLEventsViewController * calendarSelectView = [[HDLEventsViewController alloc] initWithDate:@"TEST" huddleNum:0];
+  //Add into SQL database here
+  [[HDLDatabaseManager getSharedInstance] saveHuddle:_selectedDate withVotes:@[] withEvents:@[] withInvitees:_selectedRows];
+  
+  
+  HDLEventsViewController * calendarSelectView = [[HDLEventsViewController alloc] initWithDate:_selectedDate invitees:_selectedRows];
   [self.navigationController pushViewController:calendarSelectView animated:YES];
 }
 
@@ -65,8 +84,14 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-  UITableViewCell* currCell = [tableView cellForRowAtIndexPath:indexPath];
-  [(HDLFriendSelectCell *)currCell toggleCheckmark];
+  HDLFriendSelectCell * currCell = (HDLFriendSelectCell *)[tableView cellForRowAtIndexPath:indexPath];
+  [currCell toggleCheckmark];
+  
+  if ([_selectedRows containsObject:currCell]) {
+    [_selectedRows removeObject:[currCell name] ];
+  } else {
+    [_selectedRows addObject:[currCell name] ];
+  }
 }
 
 - (UITableViewCell *) tableView: (UITableView*) tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
