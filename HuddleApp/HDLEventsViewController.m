@@ -210,7 +210,7 @@ const int MAX_VOTES = 5;
 
 -(void) viewDidLoad
 {
-  
+
 }
 
 - (UITableViewCell *) tableView: (UITableView*) tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

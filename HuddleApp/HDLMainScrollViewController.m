@@ -127,4 +127,10 @@
   _huddles = [[HDLDatabaseManager getSharedInstance] loadHuddles];
 }
 
+-(void) viewWillAppear:(BOOL)animated
+{
+  //Time to read from database
+  _huddles = [[HDLDatabaseManager getSharedInstance] loadHuddles];
+}
+
 @end
