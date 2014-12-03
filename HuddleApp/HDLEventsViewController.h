@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HDLHuddleObject.h"
 
-@interface HDLEventsViewController : UIViewController < UITableViewDataSource, UITableViewDelegate>
+@protocol HDLEventTableViewCellDelegate;
 
--(instancetype) initWithDate:(NSString *)date invitees:(NSMutableSet *) invitees;
+@interface HDLEventsViewController : UIViewController < UITableViewDataSource, UITableViewDelegate, HDLEventTableViewCellDelegate>
+
+-(instancetype) initWithHuddle:(HDLHuddleObject *)huddle;
 
 @end

@@ -7,16 +7,22 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "HDLHuddleObject.h"
 
 @interface HDLDatabaseManager : NSObject
 
 +(HDLDatabaseManager*)getSharedInstance;
 
-- (BOOL) saveHuddle: (NSDate *)date
+- (HDLHuddleObject *) saveHuddle: (NSDate *)date
           withVotes: (NSMutableArray *)votes
          withEvents: (NSMutableArray *)events
        withInvitees: (NSMutableSet *)invitees;
 
 - (NSMutableArray *) loadHuddles;
+
+-(BOOL) updateHuddle: (HDLHuddleObject *) huddle
+            withDate: (NSDate *) date
+           withVotes: (NSMutableArray *) votes
+          withEvents: (NSMutableArray *) events;
 
 @end

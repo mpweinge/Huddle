@@ -124,7 +124,7 @@ static NSString* kHuddleDatabaseName = @"Huddle";
   return isSuccess;
 }
 
-- (BOOL) saveHuddle: (NSDate *)date
+- (HDLHuddleObject *) saveHuddle: (NSDate *)date
           withVotes: (NSMutableArray *)votes
          withEvents: (NSMutableArray *)events
        withInvitees: (NSMutableSet *)invitees
@@ -191,15 +191,69 @@ static NSString* kHuddleDatabaseName = @"Huddle";
     sqlite3_prepare_v2(database, insert_stmt,-1, &statement, NULL);
     if (sqlite3_step(statement) == SQLITE_DONE)
     {
-      
-      return YES;
+      HDLHuddleObject * newHuddle = [[HDLHuddleObject alloc] initWithDateString:dateString voteString:voteString eventString:eventString inviteeString:inviteeString];
+      return newHuddle;
     }
     else {
-      return NO;
+      return nil;
     }
     sqlite3_reset(statement);
   }
   //INSERT INTO DATABASENAME(x, x, x) VALUES(x, x, x)
+  return nil;
+}
+
+-(BOOL) updateHuddle: (HDLHuddleObject *) huddle
+            withDate: (NSDate *) date
+           withVotes: (NSMutableArray *) votes
+          withEvents: (NSMutableArray *) events
+{
+  const char *dbpath = [databasePath UTF8String];
+  
+  if (sqlite3_open(dbpath, &database) == SQLITE_OK)
+  {
+    NSMutableString *insertSQL = [NSMutableString string];
+    [insertSQL appendString:@"UPDATE "];
+    [insertSQL appendString: kHuddleDatabaseName];
+    [insertSQL appendString:@" SET"];
+    
+    [insertSQL appendString:@" Votes = \""];
+    
+    NSMutableString *voteString = [NSMutableString string];
+    for (NSString * voteSequence in votes)
+    {
+      [voteString appendString: voteSequence];
+      [voteString appendString:@", "];
+    }
+    
+    [insertSQL appendFormat:@"%@\" ", voteString];
+    [insertSQL appendString:@"WHERE "];
+    
+    [insertSQL appendString:@"Date = "];
+    
+    [insertSQL appendString:@"\""];
+    [insertSQL appendString:[huddle dateString]];
+    [insertSQL appendString:@"\""];
+    [insertSQL appendString:@" AND Votes = "];
+    
+    [insertSQL appendString:@"\""];
+    [insertSQL appendString:[huddle voteString]];
+    [insertSQL appendString:@"\""];
+    [insertSQL appendString:@" AND Events = "];
+    
+    [insertSQL appendString:@"\""];
+    [insertSQL appendString:[huddle eventString]];
+    [insertSQL appendString:@"\""];
+    
+    const char *insert_stmt = [insertSQL UTF8String];
+    sqlite3_prepare_v2(database, insert_stmt,-1, &statement, NULL);
+    if (sqlite3_step(statement) == SQLITE_DONE)
+    {
+      return YES;
+    } else {
+      return NO;
+    }
+  }
   return NO;
 }
 

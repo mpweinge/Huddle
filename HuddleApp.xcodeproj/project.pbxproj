@@ -7,6 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A63F07261A2DBA070004AEF4 /* Heart2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A63F07241A2DBA070004AEF4 /* Heart2@2x.png */; };
+		A63F07271A2DBA070004AEF4 /* Heart2RED@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A63F07251A2DBA070004AEF4 /* Heart2RED@2x.png */; };
+		A63F07341A2DBB720004AEF4 /* BasketballPhoto.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A63F07281A2DBB720004AEF4 /* BasketballPhoto.jpg */; };
+		A63F07351A2DBB720004AEF4 /* HockeyPhoto.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A63F07291A2DBB720004AEF4 /* HockeyPhoto.jpg */; };
+		A63F07361A2DBB720004AEF4 /* PartyPhoto.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A63F072A1A2DBB720004AEF4 /* PartyPhoto.jpg */; };
+		A63F07371A2DBB720004AEF4 /* SalsaDancing.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A63F072B1A2DBB720004AEF4 /* SalsaDancing.jpg */; };
+		A63F07381A2DBB720004AEF4 /* Facebook_RandomGuy.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A63F072C1A2DBB720004AEF4 /* Facebook_RandomGuy.jpg */; };
+		A63F07391A2DBB720004AEF4 /* Facebook_RandomGuy2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A63F072D1A2DBB720004AEF4 /* Facebook_RandomGuy2.jpg */; };
+		A63F073A1A2DBB720004AEF4 /* Facebook_BrandonEvans.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A63F072E1A2DBB720004AEF4 /* Facebook_BrandonEvans.jpg */; };
+		A63F073B1A2DBB720004AEF4 /* Facebook_JoePolin.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A63F072F1A2DBB720004AEF4 /* Facebook_JoePolin.jpg */; };
+		A63F073C1A2DBB720004AEF4 /* Facebook_MichaelWeingert.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A63F07301A2DBB720004AEF4 /* Facebook_MichaelWeingert.jpg */; };
+		A63F073D1A2DBB720004AEF4 /* Facebook_NadavLidor.png in Resources */ = {isa = PBXBuildFile; fileRef = A63F07311A2DBB720004AEF4 /* Facebook_NadavLidor.png */; };
+		A63F073E1A2DBB720004AEF4 /* FerrisWheel.png in Resources */ = {isa = PBXBuildFile; fileRef = A63F07321A2DBB720004AEF4 /* FerrisWheel.png */; };
+		A63F073F1A2DBB720004AEF4 /* BeachPhoto.png in Resources */ = {isa = PBXBuildFile; fileRef = A63F07331A2DBB720004AEF4 /* BeachPhoto.png */; };
 		A6400AF11A284FDF00D939D4 /* HDLEventTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A6400AEA1A284FDF00D939D4 /* HDLEventTableViewCell.m */; };
 		A6400AF21A284FDF00D939D4 /* HDLHomeScreenCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A6400AEB1A284FDF00D939D4 /* HDLHomeScreenCell.m */; };
 		A6400AF31A284FDF00D939D4 /* Beach_iOS.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A6400AEC1A284FDF00D939D4 /* Beach_iOS.jpg */; };
@@ -60,6 +74,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A63F07241A2DBA070004AEF4 /* Heart2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Heart2@2x.png"; path = "HuddleApp/Heart2@2x.png"; sourceTree = "<group>"; };
+		A63F07251A2DBA070004AEF4 /* Heart2RED@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Heart2RED@2x.png"; path = "HuddleApp/Heart2RED@2x.png"; sourceTree = "<group>"; };
+		A63F07281A2DBB720004AEF4 /* BasketballPhoto.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = BasketballPhoto.jpg; path = HuddleApp/BasketballPhoto.jpg; sourceTree = "<group>"; };
+		A63F07291A2DBB720004AEF4 /* HockeyPhoto.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = HockeyPhoto.jpg; path = HuddleApp/HockeyPhoto.jpg; sourceTree = "<group>"; };
+		A63F072A1A2DBB720004AEF4 /* PartyPhoto.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = PartyPhoto.jpg; path = HuddleApp/PartyPhoto.jpg; sourceTree = "<group>"; };
+		A63F072B1A2DBB720004AEF4 /* SalsaDancing.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = SalsaDancing.jpg; path = HuddleApp/SalsaDancing.jpg; sourceTree = "<group>"; };
+		A63F072C1A2DBB720004AEF4 /* Facebook_RandomGuy.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Facebook_RandomGuy.jpg; path = HuddleApp/Facebook_RandomGuy.jpg; sourceTree = "<group>"; };
+		A63F072D1A2DBB720004AEF4 /* Facebook_RandomGuy2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Facebook_RandomGuy2.jpg; path = HuddleApp/Facebook_RandomGuy2.jpg; sourceTree = "<group>"; };
+		A63F072E1A2DBB720004AEF4 /* Facebook_BrandonEvans.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Facebook_BrandonEvans.jpg; path = HuddleApp/Facebook_BrandonEvans.jpg; sourceTree = "<group>"; };
+		A63F072F1A2DBB720004AEF4 /* Facebook_JoePolin.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Facebook_JoePolin.jpg; path = HuddleApp/Facebook_JoePolin.jpg; sourceTree = "<group>"; };
+		A63F07301A2DBB720004AEF4 /* Facebook_MichaelWeingert.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Facebook_MichaelWeingert.jpg; path = HuddleApp/Facebook_MichaelWeingert.jpg; sourceTree = "<group>"; };
+		A63F07311A2DBB720004AEF4 /* Facebook_NadavLidor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Facebook_NadavLidor.png; path = HuddleApp/Facebook_NadavLidor.png; sourceTree = "<group>"; };
+		A63F07321A2DBB720004AEF4 /* FerrisWheel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = FerrisWheel.png; path = HuddleApp/FerrisWheel.png; sourceTree = "<group>"; };
+		A63F07331A2DBB720004AEF4 /* BeachPhoto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = BeachPhoto.png; path = HuddleApp/BeachPhoto.png; sourceTree = "<group>"; };
 		A6400AEA1A284FDF00D939D4 /* HDLEventTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDLEventTableViewCell.m; sourceTree = "<group>"; };
 		A6400AEB1A284FDF00D939D4 /* HDLHomeScreenCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDLHomeScreenCell.m; sourceTree = "<group>"; };
 		A6400AEC1A284FDF00D939D4 /* Beach_iOS.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Beach_iOS.jpg; path = HuddleApp/Beach_iOS.jpg; sourceTree = "<group>"; };
@@ -217,6 +245,20 @@
 		A6A080851A1B46FA002765D2 = {
 			isa = PBXGroup;
 			children = (
+				A63F07241A2DBA070004AEF4 /* Heart2@2x.png */,
+				A63F07281A2DBB720004AEF4 /* BasketballPhoto.jpg */,
+				A63F07291A2DBB720004AEF4 /* HockeyPhoto.jpg */,
+				A63F072A1A2DBB720004AEF4 /* PartyPhoto.jpg */,
+				A63F072B1A2DBB720004AEF4 /* SalsaDancing.jpg */,
+				A63F072C1A2DBB720004AEF4 /* Facebook_RandomGuy.jpg */,
+				A63F072D1A2DBB720004AEF4 /* Facebook_RandomGuy2.jpg */,
+				A63F072E1A2DBB720004AEF4 /* Facebook_BrandonEvans.jpg */,
+				A63F072F1A2DBB720004AEF4 /* Facebook_JoePolin.jpg */,
+				A63F07301A2DBB720004AEF4 /* Facebook_MichaelWeingert.jpg */,
+				A63F07311A2DBB720004AEF4 /* Facebook_NadavLidor.png */,
+				A63F07321A2DBB720004AEF4 /* FerrisWheel.png */,
+				A63F07331A2DBB720004AEF4 /* BeachPhoto.png */,
+				A63F07251A2DBA070004AEF4 /* Heart2RED@2x.png */,
 				A6400B281A2B249100D939D4 /* CheckmarkIcon@2x.png */,
 				A6400B211A2AFEF000D939D4 /* HomeButton@2x.png */,
 				A6400B1B1A2AF40D00D939D4 /* PlusNavButton.png */,
@@ -375,14 +417,28 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A63F07361A2DBB720004AEF4 /* PartyPhoto.jpg in Resources */,
 				A6A0809C1A1B46FA002765D2 /* InfoPlist.strings in Resources */,
+				A63F073F1A2DBB720004AEF4 /* BeachPhoto.png in Resources */,
+				A63F073A1A2DBB720004AEF4 /* Facebook_BrandonEvans.jpg in Resources */,
+				A63F073D1A2DBB720004AEF4 /* Facebook_NadavLidor.png in Resources */,
+				A63F073B1A2DBB720004AEF4 /* Facebook_JoePolin.jpg in Resources */,
+				A63F07341A2DBB720004AEF4 /* BasketballPhoto.jpg in Resources */,
 				A6400B1C1A2AF40D00D939D4 /* PlusNavButton.png in Resources */,
+				A63F07351A2DBB720004AEF4 /* HockeyPhoto.jpg in Resources */,
 				A6400AF31A284FDF00D939D4 /* Beach_iOS.jpg in Resources */,
 				A6400B291A2B249100D939D4 /* CheckmarkIcon@2x.png in Resources */,
+				A63F07391A2DBB720004AEF4 /* Facebook_RandomGuy2.jpg in Resources */,
 				A6400B221A2AFEF000D939D4 /* HomeButton@2x.png in Resources */,
 				A6400B1E1A2AF69C00D939D4 /* PlusNavButton@2x.png in Resources */,
 				A6400B201A2AF76300D939D4 /* StarButton@2x.png in Resources */,
+				A63F07261A2DBA070004AEF4 /* Heart2@2x.png in Resources */,
+				A63F07371A2DBB720004AEF4 /* SalsaDancing.jpg in Resources */,
 				A6A080A41A1B46FA002765D2 /* Images.xcassets in Resources */,
+				A63F07381A2DBB720004AEF4 /* Facebook_RandomGuy.jpg in Resources */,
+				A63F07271A2DBA070004AEF4 /* Heart2RED@2x.png in Resources */,
+				A63F073C1A2DBB720004AEF4 /* Facebook_MichaelWeingert.jpg in Resources */,
+				A63F073E1A2DBB720004AEF4 /* FerrisWheel.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
