@@ -28,6 +28,10 @@ const int MAX_VOTES = 5;
   //Need to store votes here and then update the database
   NSMutableArray *_votes; // Cell # -> String of voters
   NSMutableArray *_events;
+  
+  NSArray *_voteOne;
+  NSArray *_voteTwo;
+  NSArray *_voteThree;
 }
 
 -(instancetype) initWithHuddle:(HDLHuddleObject *)huddle
@@ -60,16 +64,39 @@ const int MAX_VOTES = 5;
     
     //3 empty strings
     _votes = [NSMutableArray array];
-    [_votes addObject:@""];
-    [_votes addObject:@""];
-    [_votes addObject:@""];
+    
+    //Initialize this with the objects parsed from the votestring
+    NSArray *votes = [huddle votes];
+    
+    _voteOne = [votes[0] componentsSeparatedByString:@":"];
+    
+    _voteTwo = [votes[1] componentsSeparatedByString:@":"];
+    
+    _voteThree = [votes[2] componentsSeparatedByString:@":"];
+    
+    
+    int voteOneCount = [votes[0] rangeOfString:@"."].location == NSNotFound ? 0 : _voteOne.count;
+    int voteTwoCount = [votes[1] rangeOfString:@"."].location == NSNotFound ? 0 : _voteTwo.count;
+    int voteThreeCount = [votes[2] rangeOfString:@"."].location == NSNotFound ? 0 : _voteThree.count;
+    
+    _numVotes = voteOneCount + voteTwoCount + voteThreeCount;
+    
+    if (_numVotes > 4)
+    {
+      [_voteTimer invalidate];
+      _voteTimer = nil;
+    }
+    
+    [_votes addObject:votes[0]];
+    [_votes addObject:votes[1]];
+    [_votes addObject:votes[2]];
     
     _events = [NSMutableArray array];
     [_events addObject:@"Salsa"];
     [_events addObject:@"Hockey"];
     [_events addObject:@"Basketball"];
     
-    _numVotes = 0;
+    
   }
   return self;
 }
@@ -105,8 +132,8 @@ const int MAX_VOTES = 5;
       [currCellVotes appendString:@"Facebook_JoePolin.jpg"];
       break;
     case 4:
-      [currCell addUserPhoto:@"Facebook_NadavLidor.jpg"];
-      [currCellVotes appendString:@"Facebook_NadavLidor.jpg"];
+      [currCell addUserPhoto:@"Facebook_NadavLidor.png"];
+      [currCellVotes appendString:@"Facebook_NadavLidor.png"];
       break;
     default:
       assert(0);
@@ -168,6 +195,12 @@ const int MAX_VOTES = 5;
                                           attendingList: @[@"MW", @"BE", @"JP", @"JL"]
                                       backgroundString: @"Salsa"];
     
+    
+    for ( NSString * voteOneStrings in _voteOne)
+    {
+      [newCell addUserPhoto: [voteOneStrings stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
+    }
+    
   } else if ([indexPath row] == 1) {
     //Second one is some ferris wheel
     newCell = [[HDLEventTableViewCell alloc] initWithStyle: UITableViewCellStyleDefault
@@ -176,6 +209,11 @@ const int MAX_VOTES = 5;
                                                location: @"SAP Center"
                                           attendingList: @[@"MW", @"BE", @"JP", @"JL"]
                                        backgroundString: @"Hockey"];
+    
+    for ( NSString * voteOneStrings in _voteTwo)
+    {
+      [newCell addUserPhoto: [voteOneStrings stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
+    }
   } else {
     //Third one is beach
     newCell = [[HDLEventTableViewCell alloc] initWithStyle: UITableViewCellStyleDefault
@@ -184,6 +222,11 @@ const int MAX_VOTES = 5;
                                                location: @"Rains Courts"
                                           attendingList: @[@"MW", @"BE", @"JP", @"JL"]
                                        backgroundString: @"Basketball"];
+    
+    for ( NSString * voteOneStrings in _voteThree)
+    {
+      [newCell addUserPhoto: [voteOneStrings stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
+    }
   }
   
   [_cells setObject:newCell forKey:[NSNumber numberWithInt:[indexPath row]]];
