@@ -73,13 +73,56 @@
                                        attendingString: @"Solo"
                                       backgroundString: @"Beach"];
   }*/
-  HDLHuddleObject * currHuddle = (HDLHuddleObject *)_huddles[[indexPath row]];
-  newCell = [[HDLHomeScreenCell alloc] initWithStyle: UITableViewCellStyleDefault
-                                     reuseIdentifier:tableViewIdentifier
-                                          dateString:[currHuddle dateString]
-                                     attendingString: [currHuddle inviteesString]
-                                    backgroundString: @"Salsa"];
   
+  HDLHuddleObject * currHuddle = (HDLHuddleObject *)_huddles[[indexPath row]];
+  
+  //Read in the huddles here to see which event has the most votes
+  NSArray * votes = [currHuddle votes];
+  
+  if ([votes count] > 1)
+  {
+  
+    NSArray * _voteOne = [votes[0] componentsSeparatedByString:@":"];
+    
+    NSArray *_voteTwo = [votes[1] componentsSeparatedByString:@":"];
+    
+    NSArray *_voteThree = [votes[2] componentsSeparatedByString:@":"];
+    
+    int voteOneCount = [votes[0] rangeOfString:@"."].location == NSNotFound ? 0 : _voteOne.count;
+    int voteTwoCount = [votes[1] rangeOfString:@"."].location == NSNotFound ? 0 : _voteTwo.count;
+    int voteThreeCount = [votes[2] rangeOfString:@"."].location == NSNotFound ? 0 : _voteThree.count;
+    
+    NSString * backgroundString;
+    
+    if (voteOneCount > voteTwoCount)
+    {
+      if (voteThreeCount > voteOneCount)
+      {
+        backgroundString = @"Basketball";
+      } else {
+        backgroundString = @"Salsa";
+      }
+    } else {
+      if (voteThreeCount > voteTwoCount)
+      {
+        backgroundString = @"Basketball";
+      } else {
+        backgroundString = @"Hockey";
+      }
+    }
+
+    newCell = [[HDLHomeScreenCell alloc] initWithStyle: UITableViewCellStyleDefault
+                                       reuseIdentifier:tableViewIdentifier
+                                            dateString:[currHuddle dateString]
+                                       attendingString: [currHuddle inviteesString]
+                                      backgroundString: backgroundString];
+  } else {
+    newCell = [[HDLHomeScreenCell alloc] initWithStyle: UITableViewCellStyleDefault
+                                       reuseIdentifier:tableViewIdentifier
+                                            dateString:[currHuddle dateString]
+                                       attendingString: [currHuddle inviteesString]
+                                      backgroundString: @"Beach"];
+  }
   return newCell;
 }
 

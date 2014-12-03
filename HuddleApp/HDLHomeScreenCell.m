@@ -40,9 +40,19 @@
   
   if (self)
   {
-    
     _backgroundImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 10, 320, 180)];
-    _backgroundImage.image = [UIImage imageNamed:@"Beach_iOS.jpg"];
+    
+    if ([background isEqualToString:@"Hockey"])
+    {
+      _backgroundImage.image = [UIImage imageNamed:@"HockeyPhoto.jpg"];
+    } else if ([background isEqualToString:@"Basketball"]) {
+      _backgroundImage.image = [UIImage imageNamed:@"BasketballPhoto.jpg"];
+    } else if ([background isEqualToString:@"Salsa"]) {
+       _backgroundImage.image = [UIImage imageNamed:@"SalsaDancing.jpg"];
+    } else {
+      _backgroundImage.image = [UIImage imageNamed:@"Beach_iOS.jpg"];
+    }
+    
     [self addSubview:_backgroundImage];
     
     _dateString = date;
