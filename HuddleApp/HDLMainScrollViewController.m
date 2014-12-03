@@ -110,8 +110,7 @@
   [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
   
   huddleViewController = [[HDLEventsViewController alloc]
-                          initWithDate: [dateFormatter stringFromDate:currDate]
-                          invitees:invitees];
+                          initWithHuddle:_huddles[i]];
   
   [self.navigationController pushViewController:huddleViewController animated:YES];
 }

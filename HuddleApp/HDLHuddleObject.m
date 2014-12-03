@@ -17,6 +17,8 @@
   
   NSString *_dateString;
   NSString *_inviteesString;
+  NSString *_voteString;
+  NSString *_eventString;
 }
 
 -(instancetype) initWithDateString: (NSString *)date
@@ -30,7 +32,8 @@
   [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
   
   _dateString = date;
-  
+  _eventString = events;
+  _voteString = votes;
   _inviteesString = invitees;
   
   _date = [dateFormatter dateFromString:date];
@@ -54,9 +57,19 @@
   return _date;
 }
 
+-(NSString *)voteString
+{
+  return _voteString;
+}
+
 -(NSArray *)votes
 {
   return _votes;
+}
+
+-(NSString *)eventString
+{
+  return _eventString;
 }
 
 -(NSArray *)events

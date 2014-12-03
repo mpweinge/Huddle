@@ -25,6 +25,10 @@
 
 -(NSString *)dateString;
 
+-(NSString *)eventString;
+
+-(NSString *)voteString;
+
 -(NSString *)inviteesString;
 
 @end

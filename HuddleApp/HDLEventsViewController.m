@@ -9,6 +9,7 @@
 #import "HDLEventsViewController.h"
 #import "HDLEventDetailViewController.h"
 #import "HDLEventTableViewCell.h"
+#import "HDLDatabaseManager.h"
 
 #include <stdlib.h>
 
@@ -16,23 +17,25 @@ const int MAX_VOTES = 5;
 
 @implementation HDLEventsViewController
 {
-  NSString *_date;
-  NSMutableSet * _invitees;
+  HDLHuddleObject *_huddle;
   
   NSTimer *_voteTimer;
   
   NSMutableDictionary *_cells;
   
   int _numVotes;
+  
+  //Need to store votes here and then update the database
+  NSMutableArray *_votes; // Cell # -> String of voters
+  NSMutableArray *_events;
 }
 
--(instancetype) initWithDate:(NSString *)date invitees:(NSMutableSet *) invitees;
+-(instancetype) initWithHuddle:(HDLHuddleObject *)huddle
 {
   self = [super init];
   if (self)
   {
-    _date = date;
-    _invitees = invitees;
+    _huddle = huddle;
     
     UIScreen * mainScreen = [UIScreen mainScreen];
     UITableView * mainTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, [mainScreen bounds].size.width, [mainScreen bounds].size.height - 100)];
@@ -55,6 +58,17 @@ const int MAX_VOTES = 5;
     
     _cells = [NSMutableDictionary dictionary];
     
+    //3 empty strings
+    _votes = [NSMutableArray array];
+    [_votes addObject:@""];
+    [_votes addObject:@""];
+    [_votes addObject:@""];
+    
+    _events = [NSMutableArray array];
+    [_events addObject:@"Salsa"];
+    [_events addObject:@"Hockey"];
+    [_events addObject:@"Basketball"];
+    
     _numVotes = 0;
   }
   return self;
@@ -65,27 +79,40 @@ const int MAX_VOTES = 5;
   //Pick a random cell
   int randCell = arc4random_uniform(3);
   HDLEventTableViewCell * currCell = [_cells objectForKey:[NSNumber numberWithInt:randCell]];
+  NSMutableString * currCellVotes = [NSMutableString stringWithString:_votes[randCell]];
+  
+  if (currCellVotes.length > 0)
+  {
+    [currCellVotes appendString:@": "];
+  }
   
   switch (_numVotes)
   {
     case 0:
       [currCell addUserPhoto:@"Facebook_RandomGuy.jpg"];
+      [currCellVotes appendString:@"Facebook_RandomGuy.jpg"];
       break;
     case 1:
       [currCell addUserPhoto:@"Facebook_RandomGuy2.jpg"];
+      [currCellVotes appendString:@"Facebook_RandomGuy2.jpg"];
       break;
     case 2:
       [currCell addUserPhoto:@"Facebook_BrandonEvans.jpg"];
+      [currCellVotes appendString:@"Facebook_BrandonEvans.jpg"];
       break;
     case 3:
       [currCell addUserPhoto:@"Facebook_JoePolin.jpg"];
+      [currCellVotes appendString:@"Facebook_JoePolin.jpg"];
       break;
     case 4:
       [currCell addUserPhoto:@"Facebook_NadavLidor.jpg"];
+      [currCellVotes appendString:@"Facebook_NadavLidor.jpg"];
       break;
     default:
       assert(0);
   }
+  
+  _votes[randCell] = currCellVotes;
   
   _numVotes++;
   if (_numVotes > 4)
@@ -104,7 +131,7 @@ const int MAX_VOTES = 5;
   _voteTimer = nil;
   
   //Save the thing (well update it)
-  
+  [[HDLDatabaseManager getSharedInstance] updateHuddle:_huddle withDate:[_huddle date] withVotes:_votes withEvents:_events ];
   
 }
 
