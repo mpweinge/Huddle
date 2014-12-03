@@ -58,6 +58,7 @@
   
   self.calendarContentView = [[JTCalendarContentView alloc] initWithFrame:CGRectMake(0, 55, 320, 300)];
   self.calendarContentView.calendarManager = self.calendar;
+  self.calendarContentView.showsHorizontalScrollIndicator = true;
   
   [self.view addSubview:self.calendarMenuView];
   [self.view addSubview:self.calendarContentView];
@@ -71,51 +72,74 @@
   separator.backgroundColor = [UIColor colorWithWhite:0.7 alpha:1];
   [self.view addSubview:separator];
   
-  // Buttons to choose time of day
-  CGRect myFrame = CGRectMake(110.0f, 310.0f, 100.0f, 240.0f); // Will be rotated
-  NSArray *mySegments = [[NSArray alloc] initWithObjects: @"Morning", @"Afternoon", @"Evening", nil];
-  self.timeOfDaySelection = [[UISegmentedControl alloc] initWithItems:mySegments];
-  [self.timeOfDaySelection setMultipleTouchEnabled:TRUE];
-  self.timeOfDaySelection.frame = myFrame;
-  [self.timeOfDaySelection addTarget:self action:@selector(chooseTimeOfDay:)
-                    forControlEvents:UIControlEventValueChanged];
-  [self.view addSubview:self.timeOfDaySelection];
+  // Buttons for time of day
+  self.button1 = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+  [self.button1 addTarget:self action:@selector(morningPress) forControlEvents:UIControlEventTouchUpInside];
+  [self.button1 setTitle:@"Morning" forState:UIControlStateNormal];
+  self.button1.frame = CGRectMake(80.0, 380.0, 160.0, 31.0);
+  self.button1.layer.borderWidth = 1;
+  //button.layer.borderColor =
+  [self.view addSubview:self.button1];
   
-  // Make it a vertical list
-  self.timeOfDaySelection.transform = CGAffineTransformMakeRotation(M_PI / 2.0);
-  NSArray *arr = [self.timeOfDaySelection subviews];
-  for (int i = 0; i < [arr count]; i++) {
-    UIView *v = (UIView*) [arr objectAtIndex:i];
-    NSArray *subarr = [v subviews];
-    for (int j = 0; j < [subarr count]; j++) {
-      if ([[subarr objectAtIndex:j] isKindOfClass:[UILabel class]]) {
-        UILabel *l = (UILabel*) [subarr objectAtIndex:j];
-        l.transform = CGAffineTransformMakeRotation(- M_PI / 2.0);
-      }
-    }
-  }
+  self.button2 = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+  [self.button2 addTarget:self action:@selector(afternoonPress) forControlEvents:UIControlEventTouchUpInside];
+  [self.button2 setTitle:@"Afternoon" forState:UIControlStateNormal];
+  self.button2.frame = CGRectMake(80.0, 410, 160.0, 31.0);
+  self.button2.layer.borderWidth = 1;
+  //button.layer.borderColor =
+  [self.view addSubview:self.button2];
+  
+  self.button3 = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+  [self.button3 addTarget:self action:@selector(eveningPress) forControlEvents:UIControlEventTouchUpInside];
+  [self.button3 setTitle:@"Evening" forState:UIControlStateNormal];
+  self.button3.frame = CGRectMake(80.0, 440, 160.0, 31.0);
+  self.button3.layer.borderWidth = 1;
+  //button.layer.borderColor =
+  [self.view addSubview:self.button3];
+  
+  self.morningPressed = false;
+  self.afternoonPressed = false;
+  self.eveningPressed = false;
   
   
   [self.calendar reloadAppearance];
   
 }
 
-// Callback for time of day selection
-- (void) chooseTimeOfDay:(UISegmentedControl *)paramSender{
-  
-  //check if its the same control that triggered the change event
-  if ([paramSender isEqual:self.timeOfDaySelection]){
-    
-    //get index position for the selected control
-    NSInteger selectedIndex = [paramSender selectedSegmentIndex];
-    
-    //get the Text for the segmented control that was selected
-    NSString *myChoice =
-    [paramSender titleForSegmentAtIndex:selectedIndex];
-    //let log this info to the console
-    NSLog(@"Segment at position %li with %@ text is selected", (long)selectedIndex, myChoice);
-    
-    _selectedTime = myChoice;
+// Time of day button(s) callbacks
+- (void)morningPress
+{
+  NSLog(@"Morning touched.");
+  self.morningPressed = !self.morningPressed;
+  if(self.morningPressed) {
+    self.button1.layer.backgroundColor = [[UIColor darkGrayColor] CGColor];
+  }
+  else {
+    self.button1.layer.backgroundColor = [[UIColor whiteColor] CGColor];
+  }
+}
+
+- (void)afternoonPress
+{
+  NSLog(@"Afternoon touched.");
+  self.afternoonPressed = !self.afternoonPressed;
+  if(self.afternoonPressed) {
+    self.button2.layer.backgroundColor = [[UIColor darkGrayColor] CGColor];
+  }
+  else {
+    self.button2.layer.backgroundColor = [[UIColor whiteColor] CGColor];
+  }
+}
+
+- (void)eveningPress
+{
+  NSLog(@"Morning touched.");
+  self.eveningPressed = !self.eveningPressed;
+  if(self.eveningPressed) {
+    self.button3.layer.backgroundColor = [[UIColor darkGrayColor] CGColor];
+  }
+  else {
+    self.button3.layer.backgroundColor = [[UIColor whiteColor] CGColor];
   }
 }
 

@@ -19,5 +19,11 @@
 
 
 @property (strong, nonatomic) JTCalendar *calendar;
+@property (strong, nonatomic) UIButton *button1;
+@property (strong, nonatomic) UIButton *button2;
+@property (strong, nonatomic) UIButton *button3;
+@property bool morningPressed;
+@property bool afternoonPressed;
+@property bool eveningPressed;
 
 @end
