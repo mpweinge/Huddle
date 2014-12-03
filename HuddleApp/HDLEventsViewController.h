@@ -9,7 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "HDLHuddleObject.h"
 
-@interface HDLEventsViewController : UIViewController < UITableViewDataSource, UITableViewDelegate>
+@protocol HDLEventTableViewCellDelegate;
+
+@interface HDLEventsViewController : UIViewController < UITableViewDataSource, UITableViewDelegate, HDLEventTableViewCellDelegate>
 
 -(instancetype) initWithHuddle:(HDLHuddleObject *)huddle;
 

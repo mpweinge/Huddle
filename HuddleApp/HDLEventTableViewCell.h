@@ -8,7 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
+@class HDLEventTableViewCell;
+
+@protocol HDLEventTableViewCellDelegate
+
+@required
+-(void) heartClicked:(HDLEventTableViewCell *)table withActive:(BOOL) isActive;
+
+@end
+
 @interface HDLEventTableViewCell : UITableViewCell
+
+@property (nonatomic, retain) id<HDLEventTableViewCellDelegate> delegate;
 
 -(instancetype) initWithStyle:(UITableViewCellStyle) style
               reuseIdentifier:(NSString *) reuseIdentifier
@@ -18,5 +29,7 @@
              backgroundString:(NSString *)backgroundString;
 
 -(void) addUserPhoto:(NSString *)userString;
+
+-(void) heartWasClicked;
 
 @end

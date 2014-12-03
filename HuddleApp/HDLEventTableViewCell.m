@@ -110,6 +110,13 @@
   return self;
 }
 
+-(void) heartWasClicked
+{
+  _starClick.image = [UIImage imageNamed:@"Heart2RED.png"];
+  _starClicked = YES;
+  _userCircle.alpha = 1.0;
+}
+
 -(void) StarClicked
 {
   if (!_starClicked)
@@ -118,10 +125,14 @@
     _starClicked = YES;
     _userCircle.alpha = 1.0;
     
+    [_delegate heartClicked:self withActive:YES];
+    
   } else {
     _starClick.image = [UIImage imageNamed:@"Heart2.png"];
     _starClicked = NO;
     _userCircle.alpha = 0.0;
+    
+    [_delegate heartClicked:self withActive:NO];
   }
 }
 

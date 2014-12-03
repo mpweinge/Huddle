@@ -15,7 +15,7 @@
 
 const int MAX_VOTES = 5;
 
-@implementation HDLEventsViewController
+@implementation HDLEventsViewController 
 {
   HDLHuddleObject *_huddle;
   
@@ -99,6 +99,45 @@ const int MAX_VOTES = 5;
     
   }
   return self;
+}
+
+-(void) heartClicked:(HDLEventTableViewCell *)tableCell withActive:(BOOL) isActive
+{
+  //Need to add it to the votes for that cell
+  int i;
+  for (i = 0; i < 3; i++)
+  {
+    HDLEventTableViewCell * currCell = [_cells objectForKey:[NSNumber numberWithInt:i]];
+    if (currCell == tableCell)
+    {
+      break;
+    }
+  }
+  
+  NSMutableString * currCellVotes = [NSMutableString stringWithString:_votes[i]];
+  if (isActive)
+  {
+    //Add ": me"
+    if (currCellVotes.length > 0)
+    {
+      [currCellVotes appendString:@": me.png"];
+    } else
+    {
+      [currCellVotes appendString:@"me.png"];
+    }
+  } else {
+    //Search for ": me" and then remove it
+    NSRange meRange = [currCellVotes rangeOfString:@": me.png"];
+    
+    //If ": me" not found, then remove "me"
+    if (meRange.location == NSNotFound)
+    {
+      meRange = [currCellVotes rangeOfString:@"me.png"];
+    }
+    
+    [currCellVotes deleteCharactersInRange:meRange];
+  }
+  _votes[i] = currCellVotes;
 }
 
 -(void) simulateVote
@@ -195,10 +234,15 @@ const int MAX_VOTES = 5;
                                           attendingList: @[@"MW", @"BE", @"JP", @"JL"]
                                       backgroundString: @"Salsa"];
     
-    
     for ( NSString * voteOneStrings in _voteOne)
     {
-      [newCell addUserPhoto: [voteOneStrings stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
+      NSRange meRange = [voteOneStrings rangeOfString:@"me"];
+      if (meRange.location == NSNotFound)
+      {
+        [newCell addUserPhoto: [voteOneStrings stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
+      } else {
+        [newCell heartWasClicked];
+      }
     }
     
   } else if ([indexPath row] == 1) {
@@ -212,8 +256,15 @@ const int MAX_VOTES = 5;
     
     for ( NSString * voteOneStrings in _voteTwo)
     {
-      [newCell addUserPhoto: [voteOneStrings stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
+      NSRange meRange = [voteOneStrings rangeOfString:@"me"];
+      if (meRange.location == NSNotFound)
+      {
+        [newCell addUserPhoto: [voteOneStrings stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
+      } else {
+        [newCell heartWasClicked];
+      }
     }
+    
   } else {
     //Third one is beach
     newCell = [[HDLEventTableViewCell alloc] initWithStyle: UITableViewCellStyleDefault
@@ -225,11 +276,19 @@ const int MAX_VOTES = 5;
     
     for ( NSString * voteOneStrings in _voteThree)
     {
-      [newCell addUserPhoto: [voteOneStrings stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
+      NSRange meRange = [voteOneStrings rangeOfString:@"me"];
+      if (meRange.location == NSNotFound)
+      {
+        [newCell addUserPhoto: [voteOneStrings stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
+      } else {
+        [newCell heartWasClicked];
+      }
     }
   }
   
   [_cells setObject:newCell forKey:[NSNumber numberWithInt:[indexPath row]]];
+  
+  newCell.delegate = self;
   
   return newCell;
 }
