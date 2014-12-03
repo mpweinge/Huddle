@@ -41,7 +41,7 @@
   if (self)
   {
     
-    _backgroundImage = [[UIImageView alloc] initWithFrame:CGRectMake(10, 10, 300, 180)];
+    _backgroundImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 10, 320, 180)];
     _backgroundImage.image = [UIImage imageNamed:@"Beach_iOS.jpg"];
     [self addSubview:_backgroundImage];
     
@@ -51,7 +51,7 @@
     
     _dateLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, -20, 300, 100)];
     _dateLabel.textAlignment = NSTextAlignmentCenter;
-    _dateLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:25.0];
+    _dateLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:30.0];
     _dateLabel.text = _dateString;
     _dateLabel.textColor = [UIColor whiteColor];
     [self addSubview:_dateLabel];

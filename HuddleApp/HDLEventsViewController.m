@@ -10,10 +10,20 @@
 #import "HDLEventDetailViewController.h"
 #import "HDLEventTableViewCell.h"
 
+#include <stdlib.h>
+
+const int MAX_VOTES = 5;
+
 @implementation HDLEventsViewController
 {
   NSString *_date;
   NSMutableSet * _invitees;
+  
+  NSTimer *_voteTimer;
+  
+  NSMutableDictionary *_cells;
+  
+  int _numVotes;
 }
 
 -(instancetype) initWithDate:(NSString *)date invitees:(NSMutableSet *) invitees;
@@ -35,15 +45,66 @@
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPageCurl target:self action:@selector(EditClicked)];
     
       self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc ] initWithImage:[UIImage imageNamed:@"HomeButton.png"] style:UIBarButtonItemStylePlain target:self action:@selector(HomeClicked)];
+    
+    //Create a timer here
+    _voteTimer = [NSTimer scheduledTimerWithTimeInterval:5.0
+                                              target:self
+                                            selector:@selector(simulateVote)
+                                            userInfo:nil
+                                             repeats:YES];
+    
+    _cells = [NSMutableDictionary dictionary];
+    
+    _numVotes = 0;
   }
   return self;
+}
+
+-(void) simulateVote
+{
+  //Pick a random cell
+  int randCell = arc4random_uniform(3);
+  HDLEventTableViewCell * currCell = [_cells objectForKey:[NSNumber numberWithInt:randCell]];
+  
+  switch (_numVotes)
+  {
+    case 0:
+      [currCell addUserPhoto:@"Facebook_RandomGuy.jpg"];
+      break;
+    case 1:
+      [currCell addUserPhoto:@"Facebook_RandomGuy2.jpg"];
+      break;
+    case 2:
+      [currCell addUserPhoto:@"Facebook_BrandonEvans.jpg"];
+      break;
+    case 3:
+      [currCell addUserPhoto:@"Facebook_JoePolin.jpg"];
+      break;
+    case 4:
+      [currCell addUserPhoto:@"Facebook_NadavLidor.jpg"];
+      break;
+    default:
+      assert(0);
+  }
+  
+  _numVotes++;
+  if (_numVotes > 4)
+  {
+    [_voteTimer invalidate];
+    _voteTimer = nil;
+  }
 }
 
 -(void) HomeClicked
 {
   [self.navigationController popToRootViewControllerAnimated:YES];
   
+  //Invalidate the timer
+  [_voteTimer invalidate];
+  _voteTimer = nil;
+  
   //Save the thing (well update it)
+  
   
 }
 
@@ -63,7 +124,10 @@
 {
   static NSString *tableViewIdentifier = @"HomeTableCells";
   
-  HDLEventTableViewCell * newCell;
+  HDLEventTableViewCell * newCell = [_cells objectForKey:[NSNumber numberWithInt:[indexPath row]]];
+  
+  if (newCell)
+    return newCell;
   
   if ([indexPath row] == 0)
   {
@@ -94,6 +158,8 @@
                                           attendingList: @[@"MW", @"BE", @"JP", @"JL"]
                                        backgroundString: @"Basketball"];
   }
+  
+  [_cells setObject:newCell forKey:[NSNumber numberWithInt:[indexPath row]]];
   
   return newCell;
 }

@@ -21,12 +21,15 @@
   UIImageView *_backgroundImage;
   
   UIImageView *_circleTest;
+  UIImageView *_userCircle;
   
   UIImageView *_starClick;
   
   UITapGestureRecognizer *_starRecognizer;
   
   BOOL _starClicked;
+  
+  int numUserPhotos;
 }
 
 - (void)awakeFromNib {
@@ -51,15 +54,17 @@
   {
     
     _backgroundImage = [[UIImageView alloc] initWithFrame:CGRectMake(10, 60, 300, 180)];
-    _backgroundImage.image = [UIImage imageNamed:@"Beach_iOS.jpg"];
-    [self addSubview:_backgroundImage];
     
-    _circleTest = [[UIImageView alloc] initWithFrame:CGRectMake(82, 250, 40, 40)];
-    _circleTest.image = [UIImage imageNamed:@"Beach_iOS.jpg"];
-    _circleTest.layer.cornerRadius = 20;
-    _circleTest.layer.masksToBounds = YES;
-    _circleTest.layer.borderWidth = 0;
-    [self addSubview:_circleTest];
+    if ([backgroundString isEqualToString:@"Beach"])
+      _backgroundImage.image = [UIImage imageNamed:@"BeachPhoto.png"];
+    else if ([backgroundString isEqualToString:@"Hockey"])
+      _backgroundImage.image = [UIImage imageNamed:@"HockeyPhoto.jpg"];
+    else if ([backgroundString isEqualToString:@"Salsa"])
+      _backgroundImage.image = [UIImage imageNamed:@"SalsaDancing.jpg"];
+    else if ([backgroundString isEqualToString:@"Basketball"])
+      _backgroundImage.image = [UIImage imageNamed:@"BasketballPhoto.jpg"];
+          
+    [self addSubview:_backgroundImage];
     
     _title = title;
     _location = location;
@@ -79,7 +84,7 @@
     _locationLabel.textColor = [UIColor blackColor];
     [self addSubview:_locationLabel];
     
-    _starClick = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"StarButton.png"]];
+    _starClick = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Heart2.png"]];
     _starClick.backgroundColor = [UIColor clearColor];
     _starClick.center = CGPointMake(32, 270);
     [self addSubview:_starClick];
@@ -92,6 +97,14 @@
     [_starClick addGestureRecognizer:_starRecognizer];
     
     _starClicked = false;
+    
+    _userCircle = [[UIImageView alloc] initWithFrame:CGRectMake(62, 250, 40, 40)];
+    _userCircle.image = [UIImage imageNamed:@"Facebook_MichaelWeingert.jpg"];
+    _userCircle.layer.cornerRadius = 20;
+    _userCircle.layer.masksToBounds = YES;
+    _userCircle.layer.borderWidth = 0;
+    _userCircle.alpha = 0.0;
+    [self addSubview:_userCircle];
   }
   
   return self;
@@ -101,12 +114,29 @@
 {
   if (!_starClicked)
   {
-    _starClick.backgroundColor = [UIColor yellowColor];
+    _starClick.image = [UIImage imageNamed:@"Heart2RED.png"];
     _starClicked = YES;
+    _userCircle.alpha = 1.0;
+    
   } else {
-    _starClick.backgroundColor = [UIColor clearColor];
+    _starClick.image = [UIImage imageNamed:@"Heart2.png"];
     _starClicked = NO;
+    _userCircle.alpha = 0.0;
   }
+}
+
+
+-(void) addUserPhoto:(NSString *)userString
+{
+  //Add photo for user to cell
+  _circleTest = [[UIImageView alloc] initWithFrame:CGRectMake(112 + 50 * numUserPhotos, 250, 40, 40)];
+  _circleTest.image = [UIImage imageNamed:userString];
+  _circleTest.layer.cornerRadius = 20;
+  _circleTest.layer.masksToBounds = YES;
+  _circleTest.layer.borderWidth = 0;
+  [self addSubview:_circleTest];
+  
+  numUserPhotos++;
 }
 
 @end

@@ -191,7 +191,6 @@ static NSString* kHuddleDatabaseName = @"Huddle";
     sqlite3_prepare_v2(database, insert_stmt,-1, &statement, NULL);
     if (sqlite3_step(statement) == SQLITE_DONE)
     {
-      
       return YES;
     }
     else {

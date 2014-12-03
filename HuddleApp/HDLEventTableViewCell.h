@@ -17,4 +17,6 @@
                 attendingList:(NSArray *) attendingList
              backgroundString:(NSString *)backgroundString;
 
+-(void) addUserPhoto:(NSString *)userString;
+
 @end
