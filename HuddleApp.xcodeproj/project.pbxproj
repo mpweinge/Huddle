@@ -185,6 +185,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A63F07431A300C700004AEF4 /* ImageAssets */ = {
+			isa = PBXGroup;
+			children = (
+				A63F07241A2DBA070004AEF4 /* Heart2@2x.png */,
+				A63F07281A2DBB720004AEF4 /* BasketballPhoto.jpg */,
+				A63F07291A2DBB720004AEF4 /* HockeyPhoto.jpg */,
+				A63F072A1A2DBB720004AEF4 /* PartyPhoto.jpg */,
+				A63F072B1A2DBB720004AEF4 /* SalsaDancing.jpg */,
+				A63F072C1A2DBB720004AEF4 /* Facebook_RandomGuy.jpg */,
+				A63F072D1A2DBB720004AEF4 /* Facebook_RandomGuy2.jpg */,
+				A63F072E1A2DBB720004AEF4 /* Facebook_BrandonEvans.jpg */,
+				A63F072F1A2DBB720004AEF4 /* Facebook_JoePolin.jpg */,
+				A63F07301A2DBB720004AEF4 /* Facebook_MichaelWeingert.jpg */,
+				A63F07311A2DBB720004AEF4 /* Facebook_NadavLidor.png */,
+				A63F07321A2DBB720004AEF4 /* FerrisWheel.png */,
+				A63F07331A2DBB720004AEF4 /* BeachPhoto.png */,
+				A63F07251A2DBA070004AEF4 /* Heart2RED@2x.png */,
+				A6400B281A2B249100D939D4 /* CheckmarkIcon@2x.png */,
+				A6400B211A2AFEF000D939D4 /* HomeButton@2x.png */,
+				A6400B1B1A2AF40D00D939D4 /* PlusNavButton.png */,
+				A6400B1D1A2AF69C00D939D4 /* PlusNavButton@2x.png */,
+				A6400B1F1A2AF76300D939D4 /* StarButton@2x.png */,
+			);
+			name = ImageAssets;
+			sourceTree = "<group>";
+		};
 		A6400AF51A284FE900D939D4 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -248,25 +274,7 @@
 		A6A080851A1B46FA002765D2 = {
 			isa = PBXGroup;
 			children = (
-				A63F07241A2DBA070004AEF4 /* Heart2@2x.png */,
-				A63F07281A2DBB720004AEF4 /* BasketballPhoto.jpg */,
-				A63F07291A2DBB720004AEF4 /* HockeyPhoto.jpg */,
-				A63F072A1A2DBB720004AEF4 /* PartyPhoto.jpg */,
-				A63F072B1A2DBB720004AEF4 /* SalsaDancing.jpg */,
-				A63F072C1A2DBB720004AEF4 /* Facebook_RandomGuy.jpg */,
-				A63F072D1A2DBB720004AEF4 /* Facebook_RandomGuy2.jpg */,
-				A63F072E1A2DBB720004AEF4 /* Facebook_BrandonEvans.jpg */,
-				A63F072F1A2DBB720004AEF4 /* Facebook_JoePolin.jpg */,
-				A63F07301A2DBB720004AEF4 /* Facebook_MichaelWeingert.jpg */,
-				A63F07311A2DBB720004AEF4 /* Facebook_NadavLidor.png */,
-				A63F07321A2DBB720004AEF4 /* FerrisWheel.png */,
-				A63F07331A2DBB720004AEF4 /* BeachPhoto.png */,
-				A63F07251A2DBA070004AEF4 /* Heart2RED@2x.png */,
-				A6400B281A2B249100D939D4 /* CheckmarkIcon@2x.png */,
-				A6400B211A2AFEF000D939D4 /* HomeButton@2x.png */,
-				A6400B1B1A2AF40D00D939D4 /* PlusNavButton.png */,
-				A6400B1D1A2AF69C00D939D4 /* PlusNavButton@2x.png */,
-				A6400B1F1A2AF76300D939D4 /* StarButton@2x.png */,
+				A63F07431A300C700004AEF4 /* ImageAssets */,
 				A6400B1A1A28546900D939D4 /* JTCalendar */,
 				A6400AEC1A284FDF00D939D4 /* Beach_iOS.jpg */,
 				A6A080971A1B46FA002765D2 /* HuddleApp */,
