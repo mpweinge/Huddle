@@ -16,8 +16,8 @@
 @implementation HDLMainScrollViewController
 {
   NSMutableArray *_huddles;
-  BOOL hasPanned;
-  BOOL donePanning;
+  NSMutableArray *_hasPanned;
+  NSMutableArray *_donePanning;
   
   NSDate *_donePanTime;
   
@@ -33,8 +33,9 @@
   mainTableView.delegate = self;
   self.title = @"Huddle";
   
-  hasPanned = false;
-  donePanning = false;
+  NSNumber * noObj = [NSNumber numberWithBool:NO];
+  _hasPanned = [NSMutableArray arrayWithObjects:noObj, noObj, noObj, nil];
+  _donePanning = [NSMutableArray arrayWithObjects:noObj, noObj, noObj, nil];;
   
   /*UIButton * createHuddleButton = [UIButton buttonWithType:UIButtonTypeSystem];
   [createHuddleButton setTitle:@"Create Huddle" forState:UIControlStateNormal];
@@ -97,13 +98,13 @@
 
 -(void) isPanning: (HDLHomeScreenCell *)cell
 {
-  hasPanned = true;
-  donePanning = false;
+  _hasPanned[[cell getRow]] = [NSNumber numberWithBool:YES];
+  _donePanning[[cell getRow] ] = [NSNumber numberWithBool:NO];
 }
 
 -(void) donePanning: (HDLHomeScreenCell *)cell
 {
-  donePanning = true;
+  _donePanning[[cell getRow] ] = [NSNumber numberWithBool:YES];
   _donePanTime = [NSDate date];
 }
 
@@ -142,15 +143,15 @@
   if (elapsedTouchTime < 0.3)
     return;
   
-  if (hasPanned)
+  if ([_hasPanned[[indexPath row]] boolValue])
   {
-    if (donePanning)
+    if ([_donePanning[[indexPath row] ] boolValue])
     {
       NSLog(@" cell clicked");
       HDLHomeScreenCell * homeCell = [tableView cellForRowAtIndexPath:indexPath];
       [homeCell animateBack];
-      donePanning = false;
-      hasPanned = false;
+      _donePanning[[indexPath row] ] = [NSNumber numberWithBool:NO];
+      _hasPanned[[indexPath row] ] = [NSNumber numberWithBool:NO];
       return;
     }
   }
