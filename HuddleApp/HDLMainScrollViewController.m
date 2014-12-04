@@ -22,6 +22,8 @@
   NSDate *_donePanTime;
   
   UITableView * mainTableView;
+  
+  BOOL bShowFirstNew;
 }
 
 -(id) init {
@@ -32,6 +34,8 @@
   mainTableView.dataSource = self;
   mainTableView.delegate = self;
   self.title = @"Huddle";
+  
+  bShowFirstNew = YES;
   
   NSNumber * noObj = [NSNumber numberWithBool:NO];
   _hasPanned = [NSMutableArray arrayWithObjects:noObj, noObj, noObj, nil];
@@ -69,14 +73,16 @@
                                             dateString:[currHuddle dateString]
                                        attendingString: [currHuddle inviteesString]
                                       backgroundString: ([[currHuddle events][0] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]])
-                                                   row:[indexPath row]];
+                                                   row:[indexPath row]
+                                                 isNew:(bShowFirstNew && ([indexPath row] == 0))];
   } else {
     newCell = [[HDLHomeScreenCell alloc] initWithStyle: UITableViewCellStyleDefault
                                        reuseIdentifier:tableViewIdentifier
                                             dateString:[currHuddle dateString]
                                        attendingString: [currHuddle inviteesString]
                                       backgroundString: @"Beach"
-                                                   row:[indexPath row]];
+                                                   row:[indexPath row]
+                                                 isNew:NO];
   }
   
   //TODO: Add user photos here
@@ -92,6 +98,9 @@
   
   newCell.delegate = self;
   newCell.selectionStyle = UITableViewCellSelectionStyleNone;
+  
+  if (bShowFirstNew)
+    bShowFirstNew = false;
   
   return newCell;
 }

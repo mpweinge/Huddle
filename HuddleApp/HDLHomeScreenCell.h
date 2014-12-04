@@ -27,7 +27,8 @@
                    dateString: (NSString *) date
               attendingString: (NSString *) attending
              backgroundString: (NSString *) background
-                          row: (int) row;
+                          row: (int) row
+                        isNew: (BOOL) isNew;
 
 -(void) addUserCircle:(NSString *) userImageTitle withTotalPhotos:(int) totalPhotos;
 

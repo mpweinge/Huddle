@@ -18,6 +18,7 @@
   UILabel *_attendingPeopleLabel;
   
   UIImageView *_backgroundImage;
+  UIImageView *_newLabel;
   
   UIPanGestureRecognizer *_panRecognizer;
   
@@ -59,12 +60,16 @@
               attendingString: (NSString *)attending
              backgroundString: (NSString *)background
                           row:(int) row
+                        isNew:(BOOL) isNew
 {
   self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
   
   if (self)
   {
     _backgroundImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 10, 320, 180)];
+    
+    _newLabel = [[UIImageView alloc] initWithFrame:CGRectMake(250, 10, 70, 70)];
+    _newLabel.image = [UIImage imageNamed:@"NewPurple.png"];
     
     hasShiftedForDelete = false;
     
@@ -138,6 +143,11 @@
     deleteButton.center = CGPointMake(-30, 100);
     deleteButton.backgroundColor = [UIColor redColor];
     [self addSubview:deleteButton];
+    
+    if (isNew)
+    {
+      [self addSubview:_newLabel];
+    }
   }
   
   return self;
