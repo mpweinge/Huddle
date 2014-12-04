@@ -59,7 +59,7 @@
 -(void) createClicked: (UIResponder *) responder
 {
   //Add into SQL database here
-  HDLHuddleObject *_currHuddle = [[HDLDatabaseManager getSharedInstance] saveHuddle:_selectedDate withVotes:@[@"", @"", @""] withEvents:@[@"", @"", @""] withInvitees:_selectedRows];
+  HDLHuddleObject *_currHuddle = [[HDLDatabaseManager getSharedInstance] saveHuddle:_selectedDate withVotes:@[@"", @"", @""] withEvents:@[@"Salsa", @"Hockey", @"Basketball"] withInvitees:_selectedRows];
   
   HDLEventsViewController * calendarSelectView = [[HDLEventsViewController alloc] initWithHuddle:_currHuddle];
   [self.navigationController pushViewController:calendarSelectView animated:YES];

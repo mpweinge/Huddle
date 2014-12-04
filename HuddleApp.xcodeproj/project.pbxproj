@@ -21,6 +21,7 @@
 		A63F073D1A2DBB720004AEF4 /* Facebook_NadavLidor.png in Resources */ = {isa = PBXBuildFile; fileRef = A63F07311A2DBB720004AEF4 /* Facebook_NadavLidor.png */; };
 		A63F073E1A2DBB720004AEF4 /* FerrisWheel.png in Resources */ = {isa = PBXBuildFile; fileRef = A63F07321A2DBB720004AEF4 /* FerrisWheel.png */; };
 		A63F073F1A2DBB720004AEF4 /* BeachPhoto.png in Resources */ = {isa = PBXBuildFile; fileRef = A63F07331A2DBB720004AEF4 /* BeachPhoto.png */; };
+		A63F07421A2FFB6A0004AEF4 /* GlobalSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = A63F07411A2FFB6A0004AEF4 /* GlobalSettings.m */; };
 		A6400AF11A284FDF00D939D4 /* HDLEventTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A6400AEA1A284FDF00D939D4 /* HDLEventTableViewCell.m */; };
 		A6400AF21A284FDF00D939D4 /* HDLHomeScreenCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A6400AEB1A284FDF00D939D4 /* HDLHomeScreenCell.m */; };
 		A6400AF31A284FDF00D939D4 /* Beach_iOS.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A6400AEC1A284FDF00D939D4 /* Beach_iOS.jpg */; };
@@ -88,6 +89,8 @@
 		A63F07311A2DBB720004AEF4 /* Facebook_NadavLidor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Facebook_NadavLidor.png; path = HuddleApp/Facebook_NadavLidor.png; sourceTree = "<group>"; };
 		A63F07321A2DBB720004AEF4 /* FerrisWheel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = FerrisWheel.png; path = HuddleApp/FerrisWheel.png; sourceTree = "<group>"; };
 		A63F07331A2DBB720004AEF4 /* BeachPhoto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = BeachPhoto.png; path = HuddleApp/BeachPhoto.png; sourceTree = "<group>"; };
+		A63F07401A2FFA050004AEF4 /* GlobalSettings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlobalSettings.h; sourceTree = "<group>"; };
+		A63F07411A2FFB6A0004AEF4 /* GlobalSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalSettings.m; sourceTree = "<group>"; };
 		A6400AEA1A284FDF00D939D4 /* HDLEventTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDLEventTableViewCell.m; sourceTree = "<group>"; };
 		A6400AEB1A284FDF00D939D4 /* HDLHomeScreenCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDLHomeScreenCell.m; sourceTree = "<group>"; };
 		A6400AEC1A284FDF00D939D4 /* Beach_iOS.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Beach_iOS.jpg; path = HuddleApp/Beach_iOS.jpg; sourceTree = "<group>"; };
@@ -308,6 +311,8 @@
 				A6400B2B1A2BE7D600D939D4 /* HDLDatabaseManager.m */,
 				A6400B2D1A2BF81700D939D4 /* HDLHuddleObject.h */,
 				A6400B2E1A2BF81700D939D4 /* HDLHuddleObject.m */,
+				A63F07401A2FFA050004AEF4 /* GlobalSettings.h */,
+				A63F07411A2FFB6A0004AEF4 /* GlobalSettings.m */,
 			);
 			path = HuddleApp;
 			sourceTree = "<group>";
@@ -462,6 +467,7 @@
 				A6A080A21A1B46FA002765D2 /* HDLAppDelegate.m in Sources */,
 				A6400B251A2B05F100D939D4 /* HDLFriendSelectCell.m in Sources */,
 				A6400AF41A284FDF00D939D4 /* HDLEventDetailViewController.m in Sources */,
+				A63F07421A2FFB6A0004AEF4 /* GlobalSettings.m in Sources */,
 				A6400B181A28545D00D939D4 /* JTCircleView.m in Sources */,
 				A6A080C51A1B4737002765D2 /* HDLMainScrollViewController.m in Sources */,
 				A6400B2C1A2BE7D600D939D4 /* HDLDatabaseManager.m in Sources */,

@@ -63,40 +63,11 @@
   
   if ([votes count] > 1)
   {
-  
-    NSArray * _voteOne = [votes[0] componentsSeparatedByString:@":"];
-    
-    NSArray *_voteTwo = [votes[1] componentsSeparatedByString:@":"];
-    
-    NSArray *_voteThree = [votes[2] componentsSeparatedByString:@":"];
-    
-    int voteOneCount = [votes[0] rangeOfString:@"."].location == NSNotFound ? 0 : _voteOne.count;
-    int voteTwoCount = [votes[1] rangeOfString:@"."].location == NSNotFound ? 0 : _voteTwo.count;
-    int voteThreeCount = [votes[2] rangeOfString:@"."].location == NSNotFound ? 0 : _voteThree.count;
-    
-    NSString * backgroundString;
-    
-    if (voteOneCount > voteTwoCount)
-    {
-      if (voteThreeCount > voteOneCount)
-      {
-        backgroundString = @"Basketball";
-      } else {
-        backgroundString = @"Salsa";
-      }
-    } else {
-      if (voteThreeCount > voteTwoCount)
-      {
-        backgroundString = @"Basketball";
-      } else {
-        backgroundString = @"Hockey";
-      }
-    }
     newCell = [[HDLHomeScreenCell alloc] initWithStyle: UITableViewCellStyleDefault
                                        reuseIdentifier:tableViewIdentifier
                                             dateString:[currHuddle dateString]
                                        attendingString: [currHuddle inviteesString]
-                                      backgroundString: backgroundString
+                                      backgroundString: ([[currHuddle events][0] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]])
                                                    row:[indexPath row]];
   } else {
     newCell = [[HDLHomeScreenCell alloc] initWithStyle: UITableViewCellStyleDefault
@@ -119,6 +90,7 @@
   }
   
   newCell.delegate = self;
+  newCell.selectionStyle = UITableViewCellSelectionStyleNone;
   
   return newCell;
 }
@@ -212,12 +184,24 @@
 {
   //Time to read from database
   _huddles = [[HDLDatabaseManager getSharedInstance] loadHuddles];
+  
+  //Sort the huddles by date
+  [_huddles sortUsingComparator:^NSComparisonResult(HDLHuddleObject * obj1, HDLHuddleObject * obj2){
+    return [obj1.date compare:obj2.date];
+  }];
 }
 
 -(void) viewWillAppear:(BOOL)animated
 {
   //Time to read from database
   _huddles = [[HDLDatabaseManager getSharedInstance] loadHuddles];
+  
+  //Sort the huddles by date
+  [_huddles sortUsingComparator:^NSComparisonResult(HDLHuddleObject * obj1, HDLHuddleObject * obj2){
+    return [obj1.date compare:obj2.date];
+  }];
+  
+  [mainTableView reloadData];
 }
 
 @end

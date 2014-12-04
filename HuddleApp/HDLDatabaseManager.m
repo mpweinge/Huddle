@@ -260,7 +260,17 @@ static NSString* kHuddleDatabaseName = @"Huddle";
       [voteString appendString:@", "];
     }
     
-    [insertSQL appendFormat:@"%@\" ", voteString];
+    [insertSQL appendFormat:@"%@\", Events = \"", voteString];
+    
+    NSMutableString *eventString = [NSMutableString string];
+    for (NSString * eventSequence in [huddle events])
+    {
+      [eventString appendString: eventSequence];
+      [eventString appendString:@", "];
+    }
+    
+    [insertSQL appendFormat:@"%@\" ", eventString];
+    
     [insertSQL appendString:@"WHERE "];
     
     [insertSQL appendString:@"Date = "];

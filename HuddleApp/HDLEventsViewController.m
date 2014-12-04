@@ -32,6 +32,8 @@ const int MAX_VOTES = 5;
   NSArray *_voteOne;
   NSArray *_voteTwo;
   NSArray *_voteThree;
+  
+  UITableView * mainTableView;
 }
 
 -(instancetype) initWithHuddle:(HDLHuddleObject *)huddle
@@ -42,7 +44,7 @@ const int MAX_VOTES = 5;
     _huddle = huddle;
     
     UIScreen * mainScreen = [UIScreen mainScreen];
-    UITableView * mainTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, [mainScreen bounds].size.width, [mainScreen bounds].size.height - 100)];
+    mainTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, [mainScreen bounds].size.width, [mainScreen bounds].size.height - 100)];
     [self.view addSubview:mainTableView];
     self.title = @"Huddle";
     mainTableView.delegate = self;
@@ -91,11 +93,12 @@ const int MAX_VOTES = 5;
     [_votes addObject:votes[1]];
     [_votes addObject:votes[2]];
     
-    _events = [NSMutableArray array];
-    [_events addObject:@"Salsa"];
-    [_events addObject:@"Hockey"];
-    [_events addObject:@"Basketball"];
+     NSArray *events = [huddle events];
     
+    _events = [NSMutableArray array];
+    [_events addObject:events[0]];
+    [_events addObject:events[1]];
+    [_events addObject:events[2]];
     
   }
   return self;
@@ -115,6 +118,7 @@ const int MAX_VOTES = 5;
   }
   
   NSMutableString * currCellVotes = [NSMutableString stringWithString:_votes[i]];
+  currCellVotes = [NSMutableString stringWithString:[currCellVotes stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
   if (isActive)
   {
     //Add ": me"
@@ -146,6 +150,7 @@ const int MAX_VOTES = 5;
   int randCell = arc4random_uniform(3);
   HDLEventTableViewCell * currCell = [_cells objectForKey:[NSNumber numberWithInt:randCell]];
   NSMutableString * currCellVotes = [NSMutableString stringWithString:_votes[randCell]];
+  currCellVotes = [NSMutableString stringWithString:[currCellVotes stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
   
   if (currCellVotes.length > 0)
   {
@@ -198,7 +203,6 @@ const int MAX_VOTES = 5;
   
   //Save the thing (well update it)
   [[HDLDatabaseManager getSharedInstance] updateHuddle:_huddle withDate:[_huddle date] withVotes:_votes withEvents:_events ];
-  
 }
 
 -(id) init {
@@ -222,17 +226,30 @@ const int MAX_VOTES = 5;
   if (newCell)
     return newCell;
   
+  NSString * titleString;
+  NSString * locationString;
+  
+  if ( [_events[[indexPath row]] rangeOfString:@"Salsa"].location != NSNotFound)
+  {
+    titleString = @"Salsa Dancing";
+    locationString = @"Mango Bar";
+  } else if ([_events[[indexPath row]] rangeOfString:@"Basketball"].location != NSNotFound)
+  {
+    titleString = @"Pickup Basketball";
+    locationString = @"Rains Courts";
+  } else {
+    titleString = @"Sharks vs. Canucks";
+    locationString = @"SAP Center";
+  }
+  
   if ([indexPath row] == 0)
   {
-    //First one is the salsa dancing
-    //Date = Friday, 11/14
-    //Attending is Michael Weingert, Brandon Evans, Joe Polin, Justin Stir, good enough
     newCell = [[HDLEventTableViewCell alloc] initWithStyle: UITableViewCellStyleDefault
                                        reuseIdentifier:tableViewIdentifier
-                                            title:@"Salsa Dancing"
-                                               location: @"Mango Bar"
+                                            title:titleString
+                                               location: locationString
                                           attendingList: @[@"MW", @"BE", @"JP", @"JL"]
-                                      backgroundString: @"Salsa"];
+                                      backgroundString: [_events[0] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet] ]];
     
     for ( NSString * voteOneStrings in _voteOne)
     {
@@ -249,10 +266,10 @@ const int MAX_VOTES = 5;
     //Second one is some ferris wheel
     newCell = [[HDLEventTableViewCell alloc] initWithStyle: UITableViewCellStyleDefault
                                         reuseIdentifier:tableViewIdentifier
-                                                  title:@"Sharks vs. Canucks"
-                                               location: @"SAP Center"
+                                                  title:titleString
+                                               location: locationString
                                           attendingList: @[@"MW", @"BE", @"JP", @"JL"]
-                                       backgroundString: @"Hockey"];
+                                       backgroundString: [_events[1] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet] ]];
     
     for ( NSString * voteOneStrings in _voteTwo)
     {
@@ -269,10 +286,10 @@ const int MAX_VOTES = 5;
     //Third one is beach
     newCell = [[HDLEventTableViewCell alloc] initWithStyle: UITableViewCellStyleDefault
                                         reuseIdentifier:tableViewIdentifier
-                                                  title:@"Pickup Basketball"
-                                               location: @"Rains Courts"
+                                                  title:titleString
+                                               location: locationString
                                           attendingList: @[@"MW", @"BE", @"JP", @"JL"]
-                                       backgroundString: @"Basketball"];
+                                       backgroundString: [_events[2] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet] ]];
     
     for ( NSString * voteOneStrings in _voteThree)
     {
@@ -289,6 +306,7 @@ const int MAX_VOTES = 5;
   [_cells setObject:newCell forKey:[NSNumber numberWithInt:[indexPath row]]];
   
   newCell.delegate = self;
+  newCell.selectionStyle = UITableViewCellSelectionStyleNone;
   
   return newCell;
 }
@@ -317,6 +335,11 @@ const int MAX_VOTES = 5;
   }
   
   [self.navigationController pushViewController:huddleViewController animated:YES];*/
+}
+
+-(void) viewWillAppear:(BOOL)animated
+{
+  [mainTableView setNeedsDisplay];
 }
 
 @end
