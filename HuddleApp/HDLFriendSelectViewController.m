@@ -11,6 +11,7 @@
 #import "HDLFriendSelectCell.h"
 #import "HDLDatabaseManager.h"
 
+
 @implementation HDLFriendSelectViewController
 {
   NSDate *_selectedDate;

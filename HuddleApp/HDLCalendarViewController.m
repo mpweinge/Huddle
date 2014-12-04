@@ -9,6 +9,7 @@
 #import "HDLCalendarViewController.h"
 #import "HDLFriendSelectViewController.h"
 #import "JTCalendarMenuView.h"
+#import "GlobalSettings.h"
 
 @interface HDLCalendarViewController ()
 {
@@ -34,8 +35,14 @@
 
 -(void) nextClicked:(UIResponder *)responder
 {
-  HDLFriendSelectViewController * friendViewController = [[HDLFriendSelectViewController alloc] initWithDate: _selectedDate selectedTime: _selectedTime];
-    [self.navigationController pushViewController:friendViewController animated:YES];
+  if (self.calendar.currentDateSelected) {
+    HDLFriendSelectViewController * friendViewController = [[HDLFriendSelectViewController alloc] initWithDate: _selectedDate selectedTime: _selectedTime];
+      [self.navigationController pushViewController:friendViewController animated:YES];
+  }
+  else {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No Date Chosen" message:@"You can change month by swiping over the calendar." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+    [alert show];
+  }
 }
 
 - (void)viewDidLoad
@@ -58,7 +65,7 @@
   
   self.calendarContentView = [[JTCalendarContentView alloc] initWithFrame:CGRectMake(0, 55, 320, 300)];
   self.calendarContentView.calendarManager = self.calendar;
-  self.calendarContentView.showsHorizontalScrollIndicator = true;
+  self.calendarContentView.showsHorizontalScrollIndicator = false;
   
   [self.view addSubview:self.calendarMenuView];
   [self.view addSubview:self.calendarContentView];
@@ -77,7 +84,7 @@
   [self.button1 addTarget:self action:@selector(morningPress) forControlEvents:UIControlEventTouchUpInside];
   [self.button1 setTitle:@"Morning" forState:UIControlStateNormal];
   self.button1.frame = CGRectMake(80.0, 380.0, 160.0, 31.0);
-  self.button1.layer.borderWidth = 1;
+  [self.button1 setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
   //button.layer.borderColor =
   [self.view addSubview:self.button1];
   
@@ -85,7 +92,7 @@
   [self.button2 addTarget:self action:@selector(afternoonPress) forControlEvents:UIControlEventTouchUpInside];
   [self.button2 setTitle:@"Afternoon" forState:UIControlStateNormal];
   self.button2.frame = CGRectMake(80.0, 410, 160.0, 31.0);
-  self.button2.layer.borderWidth = 1;
+  [self.button2 setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
   //button.layer.borderColor =
   [self.view addSubview:self.button2];
   
@@ -93,7 +100,7 @@
   [self.button3 addTarget:self action:@selector(eveningPress) forControlEvents:UIControlEventTouchUpInside];
   [self.button3 setTitle:@"Evening" forState:UIControlStateNormal];
   self.button3.frame = CGRectMake(80.0, 440, 160.0, 31.0);
-  self.button3.layer.borderWidth = 1;
+  [self.button3 setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
   //button.layer.borderColor =
   [self.view addSubview:self.button3];
   
@@ -111,11 +118,12 @@
 {
   NSLog(@"Morning touched.");
   self.morningPressed = !self.morningPressed;
-  if(self.morningPressed) {
-    self.button1.layer.backgroundColor = [[UIColor darkGrayColor] CGColor];
+  if(!self.morningPressed) {
+    [self.button1 setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
   }
   else {
-    self.button1.layer.backgroundColor = [[UIColor whiteColor] CGColor];
+    [self.button1 setTitleColor:titleHuddleColor forState:UIControlStateNormal];
+   
   }
 }
 
@@ -123,23 +131,23 @@
 {
   NSLog(@"Afternoon touched.");
   self.afternoonPressed = !self.afternoonPressed;
-  if(self.afternoonPressed) {
-    self.button2.layer.backgroundColor = [[UIColor darkGrayColor] CGColor];
+  if(!self.afternoonPressed) {
+    [self.button2 setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
   }
   else {
-    self.button2.layer.backgroundColor = [[UIColor whiteColor] CGColor];
+    [self.button2 setTitleColor:titleHuddleColor forState:UIControlStateNormal];
   }
 }
 
 - (void)eveningPress
 {
-  NSLog(@"Morning touched.");
+  NSLog(@"Evening touched.");
   self.eveningPressed = !self.eveningPressed;
-  if(self.eveningPressed) {
-    self.button3.layer.backgroundColor = [[UIColor darkGrayColor] CGColor];
+  if(!self.eveningPressed) {
+    [self.button3 setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
   }
   else {
-    self.button3.layer.backgroundColor = [[UIColor whiteColor] CGColor];
+    [self.button3 setTitleColor:titleHuddleColor forState:UIControlStateNormal];
   }
 }
 
