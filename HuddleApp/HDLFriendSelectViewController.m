@@ -18,22 +18,27 @@
   NSString *_selectedTime;
   
   NSMutableSet *_selectedRows;
+  
+  UIButton * createHuddleButton;
 }
 
 -(instancetype) initWithDate: (NSDate *) date selectedTime: (NSString *)time
 {
   self = [super init];
   UIScreen * mainScreen = [UIScreen mainScreen];
-  UITableView * mainTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, [mainScreen bounds].size.width, 350)];
+  UITableView * mainTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, [mainScreen bounds].size.width, [mainScreen bounds].size.height - 115)];
   [self.view addSubview:mainTableView];
   mainTableView.dataSource = self;
   mainTableView.delegate = self;
   self.title = @"Friends";
   
-  UIButton * createHuddleButton = [UIButton buttonWithType:UIButtonTypeSystem];
-  [createHuddleButton setTitle:@"Send Invites" forState:UIControlStateNormal];
+  createHuddleButton = [UIButton buttonWithType:UIButtonTypeSystem];
+  [createHuddleButton setTitle:@"      Go Solo      " forState:UIControlStateNormal];
   [createHuddleButton sizeToFit];
-  createHuddleButton.center = CGPointMake([mainScreen bounds].size.width / 2, 375);
+  createHuddleButton.center = CGPointMake([mainScreen bounds].size.width / 2, [mainScreen bounds].size.height - 90);
+  
+  createHuddleButton.layer.borderWidth = 1.0;
+  createHuddleButton.layer.borderColor = [UIColor blackColor].CGColor;
   
   [createHuddleButton addTarget:self action:@selector(createClicked:) forControlEvents:UIControlEventTouchUpInside];
   [self.view addSubview:createHuddleButton];
@@ -87,10 +92,20 @@
   HDLFriendSelectCell * currCell = (HDLFriendSelectCell *)[tableView cellForRowAtIndexPath:indexPath];
   [currCell toggleCheckmark];
   
-  if ([_selectedRows containsObject:currCell]) {
+  if ([_selectedRows containsObject:[currCell name]] ) {
     [_selectedRows removeObject:[currCell name] ];
+    if ([_selectedRows count] == 0)
+    {
+      UIScreen * mainScreen = [UIScreen mainScreen];
+      [createHuddleButton setTitle:@"     Go Solo     " forState:UIControlStateNormal];
+      createHuddleButton.center = CGPointMake([mainScreen bounds].size.width / 2, [mainScreen bounds].size.height - 90);
+    }
   } else {
     [_selectedRows addObject:[currCell name] ];
+    
+    UIScreen * mainScreen = [UIScreen mainScreen];
+    [createHuddleButton setTitle:@"Send Invites" forState:UIControlStateNormal];
+    createHuddleButton.center = CGPointMake([mainScreen bounds].size.width / 2, [mainScreen bounds].size.height - 90);
   }
 }
 
@@ -105,7 +120,7 @@
   
   switch (i) {
     case 0:
-      name = @"James Landay";
+      name = @"Nadav Lidor";
       break;
     case 1:
       name = @"Michael Weingert";
@@ -114,10 +129,10 @@
       name = @"Joe Polin";
       break;
     case 3:
-      name = @"Nicole Zhu";
+      name = @"Brandon Evans";
       break;
     case 4:
-      name = @"Nadav Lidor";
+      name = @"James Stir";
       break;
     case 5:
       name = @"James Bond";
@@ -126,7 +141,7 @@
       name = @"Miley Cyrus";
       break;
     default:
-      name = @"Brandon Evans";
+      name = @"Obama";
       break;
   }
 
