@@ -16,16 +16,25 @@
 @implementation HDLMainScrollViewController
 {
   NSMutableArray *_huddles;
+  BOOL hasPanned;
+  BOOL donePanning;
+  
+  NSDate *_donePanTime;
+  
+  UITableView * mainTableView;
 }
 
 -(id) init {
   self = [super init];
   UIScreen * mainScreen = [UIScreen mainScreen];
-  UITableView * mainTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, [mainScreen bounds].size.width, [mainScreen bounds].size.height - 75)];
+  mainTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, [mainScreen bounds].size.width, [mainScreen bounds].size.height - 75)];
   [self.view addSubview:mainTableView];
   mainTableView.dataSource = self;
   mainTableView.delegate = self;
   self.title = @"Huddle";
+  
+  hasPanned = false;
+  donePanning = false;
   
   /*UIButton * createHuddleButton = [UIButton buttonWithType:UIButtonTypeSystem];
   [createHuddleButton setTitle:@"Create Huddle" forState:UIControlStateNormal];
@@ -46,33 +55,6 @@
   static NSString *tableViewIdentifier = @"HomeTableCells";
   
   HDLHomeScreenCell * newCell;
-  
-  /*if ([indexPath row] == 0)
-  {
-    //First one is the salsa dancing
-    //Date = Friday, 11/14
-    //Attending is Michael Weingert, Brandon Evans, Joe Polin, Justin Stir, good enough
-    newCell = [[HDLHomeScreenCell alloc] initWithStyle: UITableViewCellStyleDefault
-                                       reuseIdentifier:tableViewIdentifier
-                                            dateString:@"Friday (11/14)"
-                                       attendingString: @"Michael Weingert, Brandon Evans, Joe Polin, Justin Stir"
-                                      backgroundString: @"Salsa"];
-    
-  } else if ([indexPath row] == 1) {
-    //Second one is some ferris wheel
-    newCell = [[HDLHomeScreenCell alloc] initWithStyle: UITableViewCellStyleDefault
-                                       reuseIdentifier:tableViewIdentifier
-                                            dateString:@"Saturday (11/15)"
-                                       attendingString: @"James Bond, Harry Potter, Nicole Zhu"
-                                      backgroundString: @"Wheel"];
-  } else {
-    //Third one is beach
-    newCell = [[HDLHomeScreenCell alloc] initWithStyle: UITableViewCellStyleDefault
-                                       reuseIdentifier:tableViewIdentifier
-                                            dateString:@"Sunday (11/16)"
-                                       attendingString: @"Solo"
-                                      backgroundString: @"Beach"];
-  }*/
   
   HDLHuddleObject * currHuddle = (HDLHuddleObject *)_huddles[[indexPath row]];
   
@@ -110,20 +92,63 @@
         backgroundString = @"Hockey";
       }
     }
-
     newCell = [[HDLHomeScreenCell alloc] initWithStyle: UITableViewCellStyleDefault
                                        reuseIdentifier:tableViewIdentifier
                                             dateString:[currHuddle dateString]
                                        attendingString: [currHuddle inviteesString]
-                                      backgroundString: backgroundString];
+                                      backgroundString: backgroundString
+                                                   row:[indexPath row]];
   } else {
     newCell = [[HDLHomeScreenCell alloc] initWithStyle: UITableViewCellStyleDefault
                                        reuseIdentifier:tableViewIdentifier
                                             dateString:[currHuddle dateString]
                                        attendingString: [currHuddle inviteesString]
-                                      backgroundString: @"Beach"];
+                                      backgroundString: @"Beach"
+                                                   row:[indexPath row]];
   }
+  
+  //TODO: Add user photos here
+  if ([indexPath row] == 0) {
+    [newCell addUserCircle:@"Facebook_NadavLidor.png" withTotalPhotos:2];
+    [newCell addUserCircle:@"Facebook_RandomGuy2.jpg" withTotalPhotos:2];
+  } else if ([indexPath row] == 1) {
+    [newCell addUserCircle:@"Facebook_RandomGuy.jpg" withTotalPhotos:4];
+    [newCell addUserCircle:@"Facebook_RandomGuy2.jpg" withTotalPhotos:4];
+    [newCell addUserCircle:@"Facebook_JoePolin.jpg" withTotalPhotos:4];
+    [newCell addUserCircle:@"Facebook_MichaelWeingert.jpg" withTotalPhotos:4];
+  }
+  
+  newCell.delegate = self;
+  
   return newCell;
+}
+
+-(void) isPanning: (HDLHomeScreenCell *)cell
+{
+  hasPanned = true;
+  donePanning = false;
+}
+
+-(void) donePanning: (HDLHomeScreenCell *)cell
+{
+  donePanning = true;
+  _donePanTime = [NSDate date];
+}
+
+-(void) deleteRowClicked: (HDLHomeScreenCell *)cell
+{
+  //Get the huddle corresponding to the cell
+  int row = [cell getRow];
+  [[HDLDatabaseManager getSharedInstance] deleteHuddle: _huddles[row]];
+  [_huddles removeObjectAtIndex:row];
+  
+  NSArray *paths = [mainTableView indexPathsForVisibleRows];
+  
+  for (NSIndexPath *path in paths) {
+        if ([mainTableView cellForRowAtIndexPath:path] == cell) {
+          [mainTableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:path] withRowAnimation:UITableViewRowAnimationFade];
+        }
+  }
 }
 
 - (NSInteger) tableView: (UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -139,6 +164,25 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+  NSDate * currentTime = [NSDate date];
+  NSTimeInterval elapsedTouchTime = [currentTime timeIntervalSinceDate:_donePanTime];
+  
+  if (elapsedTouchTime < 0.3)
+    return;
+  
+  if (hasPanned)
+  {
+    if (donePanning)
+    {
+      NSLog(@" cell clicked");
+      HDLHomeScreenCell * homeCell = [tableView cellForRowAtIndexPath:indexPath];
+      [homeCell animateBack];
+      donePanning = false;
+      hasPanned = false;
+      return;
+    }
+  }
+  
   //From here load the huddle specific view (events view controller)
   HDLEventsViewController* huddleViewController;
   

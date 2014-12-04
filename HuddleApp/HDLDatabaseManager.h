@@ -25,4 +25,6 @@
            withVotes: (NSMutableArray *) votes
           withEvents: (NSMutableArray *) events;
 
+-(BOOL) deleteHuddle: (HDLHuddleObject *)huddle;
+
 @end

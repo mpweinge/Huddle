@@ -105,6 +105,8 @@
     _userCircle.layer.borderWidth = 0;
     _userCircle.alpha = 0.0;
     [self addSubview:_userCircle];
+    
+    numUserPhotos = 0;
   }
   
   return self;
@@ -139,15 +141,18 @@
 
 -(void) addUserPhoto:(NSString *)userString
 {
-  //Add photo for user to cell
-  _circleTest = [[UIImageView alloc] initWithFrame:CGRectMake(112 + 50 * numUserPhotos, 250, 40, 40)];
-  _circleTest.image = [UIImage imageNamed:userString];
-  _circleTest.layer.cornerRadius = 20;
-  _circleTest.layer.masksToBounds = YES;
-  _circleTest.layer.borderWidth = 0;
-  [self addSubview:_circleTest];
-  
-  numUserPhotos++;
+  if ([userString rangeOfString:@"."].location != NSNotFound)
+  {
+    //Add photo for user to cell
+    _circleTest = [[UIImageView alloc] initWithFrame:CGRectMake(112 + 50 * numUserPhotos, 250, 40, 40)];
+    _circleTest.image = [UIImage imageNamed:userString];
+    _circleTest.layer.cornerRadius = 20;
+    _circleTest.layer.masksToBounds = YES;
+    _circleTest.layer.borderWidth = 0;
+    [self addSubview:_circleTest];
+    
+    numUserPhotos++;
+  }
 }
 
 @end
