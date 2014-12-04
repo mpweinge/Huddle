@@ -28,6 +28,10 @@
     {
         self.title = @"Calendar";
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFastForward target:self action:@selector(nextClicked:)];
+      
+      self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc ] initWithImage:[UIImage imageNamed:@"ForwardIcon.png"] style:UIBarButtonItemStylePlain target:self action:@selector(nextClicked:)];
+      
+      self.view.backgroundColor = [UIColor whiteColor];
     }
     return self;
 }
