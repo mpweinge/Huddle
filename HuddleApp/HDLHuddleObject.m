@@ -46,7 +46,7 @@
   
   _events = [events componentsSeparatedByString: @","];
   
-  _invitees = [events componentsSeparatedByString:@","];
+  _invitees = [invitees componentsSeparatedByString:@","];
   
   NSMutableArray * mutableVotes = [NSMutableArray arrayWithArray:_votes];
   NSMutableArray * mutableEvents = [NSMutableArray arrayWithArray:_events];

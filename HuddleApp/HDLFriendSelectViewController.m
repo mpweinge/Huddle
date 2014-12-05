@@ -81,7 +81,7 @@
 - (NSInteger) tableView: (UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
   //Hardcoded here
-  return 8;
+  return 13;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -94,8 +94,8 @@
   HDLFriendSelectCell * currCell = (HDLFriendSelectCell *)[tableView cellForRowAtIndexPath:indexPath];
   [currCell toggleCheckmark];
   
-  if ([_selectedRows containsObject:[currCell name]] ) {
-    [_selectedRows removeObject:[currCell name] ];
+  if ([_selectedRows containsObject:[currCell photoURL]] ) {
+    [_selectedRows removeObject:[currCell photoURL] ];
     if ([_selectedRows count] == 0)
     {
       UIScreen * mainScreen = [UIScreen mainScreen];
@@ -103,7 +103,7 @@
       createHuddleButton.center = CGPointMake([mainScreen bounds].size.width / 2, [mainScreen bounds].size.height - 90);
     }
   } else {
-    [_selectedRows addObject:[currCell name] ];
+    [_selectedRows addObject:[currCell photoURL] ];
     
     UIScreen * mainScreen = [UIScreen mainScreen];
     [createHuddleButton setTitle:@"Send Invites" forState:UIControlStateNormal];
@@ -119,35 +119,68 @@
   
   int i = [indexPath row];
   NSString *name;
+  NSString *namePhotoURL;
   
   switch (i) {
     case 0:
       name = @"Nadav Lidor";
+      namePhotoURL = @"Facebook_NadavLidor.png";
       break;
     case 1:
       name = @"Michael Weingert";
+      namePhotoURL = @"Facebook_MichaelWeingert.jpg";
       break;
     case 2:
       name = @"Joe Polin";
+      namePhotoURL = @"Facebook_JoePolin.jpg";
       break;
     case 3:
       name = @"Brandon Evans";
+      namePhotoURL = @"Facebook_BrandonEvans.jpg";
       break;
     case 4:
       name = @"James Stir";
+      namePhotoURL = @"Facebook_RandomGuy.jpg";
       break;
     case 5:
       name = @"James Bond";
+      namePhotoURL = @"Facebook_JamesBond.png";
       break;
     case 6:
       name = @"Miley Cyrus";
+      namePhotoURL = @"Facebook_Miley.png";
+      break;
+    case 7:
+      name = @"President Obama";
+      namePhotoURL = @"Facebook_Obama.png";
+      break;
+    case 8:
+      name = @"Brad Pitt";
+      namePhotoURL = @"Facebook_BradPitt.png";
+      break;
+    case 9:
+      name = @"Ban Ki-Moon";
+      namePhotoURL = @"Facebook_BanKiMoon.png";
+      break;
+    case 10:
+      name = @"Macklemore";
+      namePhotoURL = @"Facebook_Macklemore.png";
+      break;
+    case 11:
+      name = @"Amy Winehouse";
+      namePhotoURL = @"Facebook_AmyWinehouse.png";
+      break;
+    case 12:
+      name = @"John Hennessy";
+      namePhotoURL = @"Facebook_JohnHennessy.png";
       break;
     default:
-      name = @"Obama";
+      assert(0);
+      //name = @"President Obama";
       break;
   }
 
-  newCell = [[HDLFriendSelectCell alloc] initWithName: name];
+  newCell = [[HDLFriendSelectCell alloc] initWithName: name photoURL: namePhotoURL];
   
   return newCell;
 }

@@ -37,4 +37,6 @@
 
 -(int) getRow;
 
+-(void) decrementRow;
+
 @end

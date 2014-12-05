@@ -34,6 +34,8 @@ const int MAX_VOTES = 5;
   NSArray *_voteThree;
   
   UITableView * mainTableView;
+  
+  int _numInvitees;
 }
 
 -(instancetype) initWithHuddle:(HDLHuddleObject *)huddle
@@ -83,7 +85,9 @@ const int MAX_VOTES = 5;
     
     _numVotes = voteOneCount + voteTwoCount + voteThreeCount;
     
-    if (_numVotes > 4)
+    _numInvitees = [[huddle invitees] count];
+    
+    if (_numVotes > _numInvitees)
     {
       [_voteTimer invalidate];
       _voteTimer = nil;
@@ -157,36 +161,16 @@ const int MAX_VOTES = 5;
     [currCellVotes appendString:@": "];
   }
   
-  switch (_numVotes)
-  {
-    case 0:
-      [currCell addUserPhoto:@"Facebook_RandomGuy.jpg"];
-      [currCellVotes appendString:@"Facebook_RandomGuy.jpg"];
-      break;
-    case 1:
-      [currCell addUserPhoto:@"Facebook_RandomGuy2.jpg"];
-      [currCellVotes appendString:@"Facebook_RandomGuy2.jpg"];
-      break;
-    case 2:
-      [currCell addUserPhoto:@"Facebook_BrandonEvans.jpg"];
-      [currCellVotes appendString:@"Facebook_BrandonEvans.jpg"];
-      break;
-    case 3:
-      [currCell addUserPhoto:@"Facebook_JoePolin.jpg"];
-      [currCellVotes appendString:@"Facebook_JoePolin.jpg"];
-      break;
-    case 4:
-      [currCell addUserPhoto:@"Facebook_NadavLidor.png"];
-      [currCellVotes appendString:@"Facebook_NadavLidor.png"];
-      break;
-    default:
-      assert(0);
-  }
+  NSString * photoURL = [_huddle invitees][_numVotes];
+  photoURL = [photoURL stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+  
+  [currCell addUserPhoto:photoURL];
+  [currCellVotes appendString:photoURL];
   
   _votes[randCell] = currCellVotes;
   
   _numVotes++;
-  if (_numVotes > 4)
+  if (_numVotes >= _numInvitees)
   {
     [_voteTimer invalidate];
     _voteTimer = nil;

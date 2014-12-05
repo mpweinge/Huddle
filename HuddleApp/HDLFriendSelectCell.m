@@ -12,6 +12,7 @@
 {
   UILabel *_nameLabel;
   NSString *_name;
+  NSString *_photoURL;
   
   UIImageView *_checkmarkView;
   
@@ -29,11 +30,13 @@
 }
 
 -(instancetype) initWithName:(NSString *)name
+                    photoURL:(NSString *)photoURL;
 {
   self = [super init];
   if (self)
   {
     _name = name;
+    _photoURL = photoURL;
     
     _nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, 350, 50)];
     _nameLabel.text = name;
@@ -66,6 +69,11 @@
 -(NSString *)name
 {
   return _name;
+}
+
+-(NSString *)photoURL
+{
+  return _photoURL;
 }
 
 @end

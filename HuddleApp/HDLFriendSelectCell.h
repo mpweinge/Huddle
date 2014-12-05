@@ -10,10 +10,13 @@
 
 @interface HDLFriendSelectCell : UITableViewCell
 
--(instancetype) initWithName:(NSString *)name;
+-(instancetype) initWithName:(NSString *)name
+                    photoURL:(NSString *)photoURL;
 
 -(void) toggleCheckmark;
 
 -(NSString *)name;
+
+-(NSString *)photoURL;
 
 @end

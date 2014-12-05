@@ -88,14 +88,12 @@
   }
   
   //TODO: Add user photos here
-  if ([indexPath row] == 0) {
-    [newCell addUserCircle:@"Facebook_NadavLidor.png" withTotalPhotos:2];
-    [newCell addUserCircle:@"Facebook_RandomGuy2.jpg" withTotalPhotos:2];
-  } else if ([indexPath row] == 1) {
-    [newCell addUserCircle:@"Facebook_RandomGuy.jpg" withTotalPhotos:4];
-    [newCell addUserCircle:@"Facebook_RandomGuy2.jpg" withTotalPhotos:4];
-    [newCell addUserCircle:@"Facebook_JoePolin.jpg" withTotalPhotos:4];
-    [newCell addUserCircle:@"Facebook_MichaelWeingert.jpg" withTotalPhotos:4];
+  NSArray * selectInvitees = [currHuddle invitees];
+  for (int i = 0; i < [selectInvitees count]; i++)
+  {
+    NSString * currInvitee = selectInvitees[i];
+    currInvitee = [currInvitee stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    [newCell addUserCircle:currInvitee  withTotalPhotos:[selectInvitees count]];
   }
   
   newCell.delegate = self;
@@ -128,9 +126,14 @@
   
   NSArray *paths = [mainTableView indexPathsForVisibleRows];
   
+  BOOL bFoundCellToDelete = false;
   for (NSIndexPath *path in paths) {
         if ([mainTableView cellForRowAtIndexPath:path] == cell) {
           [mainTableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:path] withRowAnimation:UITableViewRowAnimationFade];
+          bFoundCellToDelete = true;
+        } else if (bFoundCellToDelete){
+          HDLHomeScreenCell * cell = [mainTableView cellForRowAtIndexPath:path];
+          [cell decrementRow];
         }
   }
 }

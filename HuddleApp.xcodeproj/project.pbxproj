@@ -24,6 +24,14 @@
 		A63F07421A2FFB6A0004AEF4 /* GlobalSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = A63F07411A2FFB6A0004AEF4 /* GlobalSettings.m */; };
 		A63F07451A305CA60004AEF4 /* ForwardIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A63F07441A305CA60004AEF4 /* ForwardIcon@2x.png */; };
 		A63F07471A3062760004AEF4 /* NewPurple@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A63F07461A3062760004AEF4 /* NewPurple@2x.png */; };
+		A63F074E1A318BE20004AEF4 /* Facebook_AmyWinehouse.png in Resources */ = {isa = PBXBuildFile; fileRef = A63F07481A318BE20004AEF4 /* Facebook_AmyWinehouse.png */; };
+		A63F074F1A318BE20004AEF4 /* Facebook_Miley.png in Resources */ = {isa = PBXBuildFile; fileRef = A63F07491A318BE20004AEF4 /* Facebook_Miley.png */; };
+		A63F07501A318BE20004AEF4 /* Facebook_Macklemore.png in Resources */ = {isa = PBXBuildFile; fileRef = A63F074A1A318BE20004AEF4 /* Facebook_Macklemore.png */; };
+		A63F07511A318BE20004AEF4 /* Facebook_Obama.png in Resources */ = {isa = PBXBuildFile; fileRef = A63F074B1A318BE20004AEF4 /* Facebook_Obama.png */; };
+		A63F07521A318BE20004AEF4 /* Facebook_BradPitt.png in Resources */ = {isa = PBXBuildFile; fileRef = A63F074C1A318BE20004AEF4 /* Facebook_BradPitt.png */; };
+		A63F07531A318BE20004AEF4 /* Facebook_JamesBond.png in Resources */ = {isa = PBXBuildFile; fileRef = A63F074D1A318BE20004AEF4 /* Facebook_JamesBond.png */; };
+		A63F07561A318CCC0004AEF4 /* Facebook_JohnHennessy.png in Resources */ = {isa = PBXBuildFile; fileRef = A63F07541A318CCC0004AEF4 /* Facebook_JohnHennessy.png */; };
+		A63F07571A318CCC0004AEF4 /* Facebook_BanKiMoon.png in Resources */ = {isa = PBXBuildFile; fileRef = A63F07551A318CCC0004AEF4 /* Facebook_BanKiMoon.png */; };
 		A6400AF11A284FDF00D939D4 /* HDLEventTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A6400AEA1A284FDF00D939D4 /* HDLEventTableViewCell.m */; };
 		A6400AF21A284FDF00D939D4 /* HDLHomeScreenCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A6400AEB1A284FDF00D939D4 /* HDLHomeScreenCell.m */; };
 		A6400AF31A284FDF00D939D4 /* Beach_iOS.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A6400AEC1A284FDF00D939D4 /* Beach_iOS.jpg */; };
@@ -95,6 +103,14 @@
 		A63F07411A2FFB6A0004AEF4 /* GlobalSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalSettings.m; sourceTree = "<group>"; };
 		A63F07441A305CA60004AEF4 /* ForwardIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ForwardIcon@2x.png"; path = "HuddleApp/ForwardIcon@2x.png"; sourceTree = "<group>"; };
 		A63F07461A3062760004AEF4 /* NewPurple@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "NewPurple@2x.png"; path = "HuddleApp/NewPurple@2x.png"; sourceTree = "<group>"; };
+		A63F07481A318BE20004AEF4 /* Facebook_AmyWinehouse.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Facebook_AmyWinehouse.png; path = HuddleApp/Facebook_AmyWinehouse.png; sourceTree = "<group>"; };
+		A63F07491A318BE20004AEF4 /* Facebook_Miley.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Facebook_Miley.png; path = HuddleApp/Facebook_Miley.png; sourceTree = "<group>"; };
+		A63F074A1A318BE20004AEF4 /* Facebook_Macklemore.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Facebook_Macklemore.png; path = HuddleApp/Facebook_Macklemore.png; sourceTree = "<group>"; };
+		A63F074B1A318BE20004AEF4 /* Facebook_Obama.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Facebook_Obama.png; path = HuddleApp/Facebook_Obama.png; sourceTree = "<group>"; };
+		A63F074C1A318BE20004AEF4 /* Facebook_BradPitt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Facebook_BradPitt.png; path = HuddleApp/Facebook_BradPitt.png; sourceTree = "<group>"; };
+		A63F074D1A318BE20004AEF4 /* Facebook_JamesBond.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Facebook_JamesBond.png; path = HuddleApp/Facebook_JamesBond.png; sourceTree = "<group>"; };
+		A63F07541A318CCC0004AEF4 /* Facebook_JohnHennessy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Facebook_JohnHennessy.png; path = HuddleApp/Facebook_JohnHennessy.png; sourceTree = "<group>"; };
+		A63F07551A318CCC0004AEF4 /* Facebook_BanKiMoon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Facebook_BanKiMoon.png; path = HuddleApp/Facebook_BanKiMoon.png; sourceTree = "<group>"; };
 		A6400AEA1A284FDF00D939D4 /* HDLEventTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDLEventTableViewCell.m; sourceTree = "<group>"; };
 		A6400AEB1A284FDF00D939D4 /* HDLHomeScreenCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDLHomeScreenCell.m; sourceTree = "<group>"; };
 		A6400AEC1A284FDF00D939D4 /* Beach_iOS.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Beach_iOS.jpg; path = HuddleApp/Beach_iOS.jpg; sourceTree = "<group>"; };
@@ -192,6 +208,14 @@
 		A63F07431A300C700004AEF4 /* ImageAssets */ = {
 			isa = PBXGroup;
 			children = (
+				A63F07481A318BE20004AEF4 /* Facebook_AmyWinehouse.png */,
+				A63F07491A318BE20004AEF4 /* Facebook_Miley.png */,
+				A63F074A1A318BE20004AEF4 /* Facebook_Macklemore.png */,
+				A63F074B1A318BE20004AEF4 /* Facebook_Obama.png */,
+				A63F074C1A318BE20004AEF4 /* Facebook_BradPitt.png */,
+				A63F074D1A318BE20004AEF4 /* Facebook_JamesBond.png */,
+				A63F07541A318CCC0004AEF4 /* Facebook_JohnHennessy.png */,
+				A63F07551A318CCC0004AEF4 /* Facebook_BanKiMoon.png */,
 				A63F07241A2DBA070004AEF4 /* Heart2@2x.png */,
 				A63F07281A2DBB720004AEF4 /* BasketballPhoto.jpg */,
 				A63F07291A2DBB720004AEF4 /* HockeyPhoto.jpg */,
@@ -436,8 +460,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A63F07571A318CCC0004AEF4 /* Facebook_BanKiMoon.png in Resources */,
 				A63F07361A2DBB720004AEF4 /* PartyPhoto.jpg in Resources */,
 				A6A0809C1A1B46FA002765D2 /* InfoPlist.strings in Resources */,
+				A63F07511A318BE20004AEF4 /* Facebook_Obama.png in Resources */,
+				A63F07501A318BE20004AEF4 /* Facebook_Macklemore.png in Resources */,
 				A63F073F1A2DBB720004AEF4 /* BeachPhoto.png in Resources */,
 				A63F073A1A2DBB720004AEF4 /* Facebook_BrandonEvans.jpg in Resources */,
 				A63F073D1A2DBB720004AEF4 /* Facebook_NadavLidor.png in Resources */,
@@ -449,16 +476,21 @@
 				A6400B291A2B249100D939D4 /* CheckmarkIcon@2x.png in Resources */,
 				A63F07391A2DBB720004AEF4 /* Facebook_RandomGuy2.jpg in Resources */,
 				A6400B221A2AFEF000D939D4 /* HomeButton@2x.png in Resources */,
+				A63F07561A318CCC0004AEF4 /* Facebook_JohnHennessy.png in Resources */,
+				A63F07521A318BE20004AEF4 /* Facebook_BradPitt.png in Resources */,
 				A6400B1E1A2AF69C00D939D4 /* PlusNavButton@2x.png in Resources */,
 				A6400B201A2AF76300D939D4 /* StarButton@2x.png in Resources */,
 				A63F07261A2DBA070004AEF4 /* Heart2@2x.png in Resources */,
+				A63F074E1A318BE20004AEF4 /* Facebook_AmyWinehouse.png in Resources */,
 				A63F07371A2DBB720004AEF4 /* SalsaDancing.jpg in Resources */,
 				A63F07451A305CA60004AEF4 /* ForwardIcon@2x.png in Resources */,
 				A63F07471A3062760004AEF4 /* NewPurple@2x.png in Resources */,
 				A6A080A41A1B46FA002765D2 /* Images.xcassets in Resources */,
 				A63F07381A2DBB720004AEF4 /* Facebook_RandomGuy.jpg in Resources */,
 				A63F07271A2DBA070004AEF4 /* Heart2RED@2x.png in Resources */,
+				A63F07531A318BE20004AEF4 /* Facebook_JamesBond.png in Resources */,
 				A63F073C1A2DBB720004AEF4 /* Facebook_MichaelWeingert.jpg in Resources */,
+				A63F074F1A318BE20004AEF4 /* Facebook_Miley.png in Resources */,
 				A63F073E1A2DBB720004AEF4 /* FerrisWheel.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -168,6 +168,11 @@
   [_delegate deleteRowClicked:self];
 }
 
+-(void) decrementRow
+{
+  _row--;
+}
+
 -(void) addUserCircle:(NSString *) userImageTitle withTotalPhotos:(int) totalPhotos
 {
   //Add photo for user to cell
