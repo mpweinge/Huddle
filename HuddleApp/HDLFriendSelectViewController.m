@@ -26,7 +26,7 @@
 {
   self = [super init];
   UIScreen * mainScreen = [UIScreen mainScreen];
-  UITableView * mainTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, [mainScreen bounds].size.width, [mainScreen bounds].size.height - 115)];
+  UITableView * mainTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, [mainScreen bounds].size.width, [mainScreen bounds].size.height - 85)];
   [self.view addSubview:mainTableView];
   mainTableView.dataSource = self;
   mainTableView.delegate = self;
@@ -41,7 +41,9 @@
   createHuddleButton.layer.borderColor = [UIColor blackColor].CGColor;
   
   [createHuddleButton addTarget:self action:@selector(createClicked:) forControlEvents:UIControlEventTouchUpInside];
-  [self.view addSubview:createHuddleButton];
+  //[self.view addSubview:createHuddleButton];
+  
+  self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc ] initWithImage:[UIImage imageNamed:@"ForwardIcon.png"] style:UIBarButtonItemStylePlain target:self action:@selector(createClicked:)];
   
   _selectedDate = date;
   _selectedTime = time;
@@ -73,7 +75,7 @@
 
 -(void) viewDidLoad
 {
-  
+  self.navigationController.navigationBar.topItem.title = @"";
 }
 
 - (NSInteger) tableView: (UITableView *)tableView numberOfRowsInSection:(NSInteger)section

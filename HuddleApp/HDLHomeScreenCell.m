@@ -66,7 +66,7 @@
   
   if (self)
   {
-    _backgroundImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 10, 320, 180)];
+    _backgroundImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 10, 320, 210)];
     
     _newLabel = [[UIImageView alloc] initWithFrame:CGRectMake(250, 10, 70, 70)];
     _newLabel.image = [UIImage imageNamed:@"NewPurple.png"];
@@ -101,7 +101,7 @@
     _dateLabel.textColor = [UIColor whiteColor];
     
     
-    _attendingPeopleLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 120, 350, 100)];
+    _attendingPeopleLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 150, 350, 100)];
     _attendingPeopleLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:12.0];
     _attendingPeopleLabel.text = _attendingPeople;
     _attendingPeopleLabel.textColor = [UIColor whiteColor];
@@ -115,7 +115,7 @@
     
     [self addSubview:_dateLabel];
     
-    transparentRect2 = [[UIView alloc] initWithFrame:CGRectMake(0, 140, 350, 50)];
+    transparentRect2 = [[UIView alloc] initWithFrame:CGRectMake(0, 170, 350, 50)];
     transparentRect2.backgroundColor = [UIColor blackColor];
     transparentRect2.alpha = 0.5;
     [self addSubview:transparentRect2];
@@ -165,7 +165,7 @@
   UIScreen * currentScreen = [UIScreen screens][0];
   int centerOffset = ([currentScreen bounds].size.width - (totalPhotos * 50)) / 2;
   
-  UIImageView *circleTest = [[UIImageView alloc] initWithFrame:CGRectMake(centerOffset + 50 * numUserPhotos, 145, 40, 40)];
+  UIImageView *circleTest = [[UIImageView alloc] initWithFrame:CGRectMake(centerOffset + 50 * numUserPhotos, 175, 40, 40)];
   circleTest.image = [UIImage imageNamed:userImageTitle];
   circleTest.layer.cornerRadius = 20;
   circleTest.layer.masksToBounds = YES;
@@ -190,6 +190,8 @@
 -(void) animateBack
 {
   int deleteShift = 60;
+  
+        hasShiftedForDelete = false;
   
   [UIView animateWithDuration:0.5 animations:^{
     CGRect imageFrame = _backgroundImage.frame;
@@ -236,7 +238,6 @@
     if (hasShiftedForDelete)
     {
       [_delegate donePanning:self];
-      hasShiftedForDelete = false;
     }
   }
   else if ( (startPan.x - translation.x) > 50)

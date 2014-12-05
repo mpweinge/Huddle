@@ -27,7 +27,7 @@
     //self = [super init];
     if (self)
     {
-        self.title = @"Calendar";
+        self.title = @"Date";
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFastForward target:self action:@selector(nextClicked:)];
       
       self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc ] initWithImage:[UIImage imageNamed:@"ForwardIcon.png"] style:UIBarButtonItemStylePlain target:self action:@selector(nextClicked:)];
