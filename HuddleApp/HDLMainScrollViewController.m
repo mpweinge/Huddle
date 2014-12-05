@@ -74,7 +74,8 @@
                                        attendingString: [currHuddle inviteesString]
                                       backgroundString: ([[currHuddle events][0] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]])
                                                    row:[indexPath row]
-                                                 isNew:(bShowFirstNew && ([indexPath row] == 0))];
+                                                 isNew:(bShowFirstNew && ([indexPath row] == 0))
+                                            timeString:[currHuddle timeString]];
   } else {
     newCell = [[HDLHomeScreenCell alloc] initWithStyle: UITableViewCellStyleDefault
                                        reuseIdentifier:tableViewIdentifier
@@ -82,7 +83,8 @@
                                        attendingString: [currHuddle inviteesString]
                                       backgroundString: @"Beach"
                                                    row:[indexPath row]
-                                                 isNew:NO];
+                                                 isNew:NO
+                                            timeString:[currHuddle timeString]];
   }
   
   //TODO: Add user photos here

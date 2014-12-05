@@ -13,7 +13,8 @@
 -(instancetype) initWithDateString: (NSString *)date
                         voteString: (NSString *)votes
                        eventString: (NSString *)events
-                     inviteeString: (NSString *)invitees;
+                     inviteeString: (NSString *)invitees
+                        timeString: (NSString *)time;
 
 -(NSDate *)date;
 
@@ -30,5 +31,7 @@
 -(NSString *)voteString;
 
 -(NSString *)inviteesString;
+
+-(NSString *)timeString;
 
 @end

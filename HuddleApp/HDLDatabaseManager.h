@@ -16,7 +16,8 @@
 - (HDLHuddleObject *) saveHuddle: (NSDate *)date
           withVotes: (NSMutableArray *)votes
          withEvents: (NSMutableArray *)events
-       withInvitees: (NSMutableSet *)invitees;
+       withInvitees: (NSMutableSet *)invitees
+     withTimePeriod: (NSString *)timePeriod;
 
 - (NSMutableArray *) loadHuddles;
 

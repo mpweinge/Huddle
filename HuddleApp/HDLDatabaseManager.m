@@ -44,8 +44,8 @@ static NSString* kHuddleDatabaseName = @"Huddle";
 
 -(void) SetupDatabase
 {
-  NSArray *huddleFields = @[ @"Date text", @"Votes text", @"Events text", @"Invitees text"];
-  _huddleFieldNames = @[ @"Date", @"Votes", @"Events", @"Invitees"];
+  NSArray *huddleFields = @[ @"Date text", @"Votes text", @"Events text", @"Invitees text", @"Time text"];
+  _huddleFieldNames = @[ @"Date", @"Votes", @"Events", @"Invitees", @"Time"];
   [self createTable:kHuddleDatabaseName withFields:huddleFields];
 }
 
@@ -128,6 +128,7 @@ static NSString* kHuddleDatabaseName = @"Huddle";
           withVotes: (NSMutableArray *)votes
          withEvents: (NSMutableArray *)events
        withInvitees: (NSMutableSet *)invitees
+     withTimePeriod: (NSString *)timePeriod
 {
   //Check to make sure the serialized object has the same number of properties
   const char *dbpath = [databasePath UTF8String];
@@ -185,13 +186,18 @@ static NSString* kHuddleDatabaseName = @"Huddle";
     [insertSQL appendString:inviteeString];
     [insertSQL appendString:@"\""];
     
+    [insertSQL appendString:@", "];
+    [insertSQL appendString:@"\""];
+    [insertSQL appendString:timePeriod];
+    [insertSQL appendString:@"\""];
+    
     [insertSQL appendString:@")"];
     
     const char *insert_stmt = [insertSQL UTF8String];
     sqlite3_prepare_v2(database, insert_stmt,-1, &statement, NULL);
     if (sqlite3_step(statement) == SQLITE_DONE)
     {
-      HDLHuddleObject * newHuddle = [[HDLHuddleObject alloc] initWithDateString:dateString voteString:voteString eventString:eventString inviteeString:inviteeString];
+      HDLHuddleObject * newHuddle = [[HDLHuddleObject alloc] initWithDateString:dateString voteString:voteString eventString:eventString inviteeString:inviteeString timeString:timePeriod];
       return newHuddle;
     }
     else {
@@ -323,11 +329,14 @@ static NSString* kHuddleDatabaseName = @"Huddle";
                               (const char *) sqlite3_column_text(statement, 2)];
         NSString *invitees = [[NSString alloc] initWithUTF8String:
                             (const char *) sqlite3_column_text(statement, 3)];
+        NSString *time = [[NSString alloc] initWithUTF8String:
+                              (const char *) sqlite3_column_text(statement, 4)];
         
         [resultArray addObject:[[HDLHuddleObject alloc] initWithDateString:dates
                                                                 voteString:votes
                                                                eventString:events
-                                                             inviteeString:invitees]];
+                                                             inviteeString:invitees
+                                                                timeString:time]];
       }
       return resultArray;
       sqlite3_reset(statement);

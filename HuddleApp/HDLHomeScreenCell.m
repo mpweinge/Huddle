@@ -16,6 +16,7 @@
   
   UILabel * _dateLabel;
   UILabel *_attendingPeopleLabel;
+  UILabel *_timeLabel;
   
   UIImageView *_backgroundImage;
   UIImageView *_newLabel;
@@ -59,8 +60,9 @@
                    dateString: (NSString *) date
               attendingString: (NSString *)attending
              backgroundString: (NSString *)background
-                          row:(int) row
-                        isNew:(BOOL) isNew
+                          row: (int) row
+                        isNew: (BOOL) isNew
+                   timeString: (NSString *)time
 {
   self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
   
@@ -100,6 +102,12 @@
     _dateLabel.text = _dateString;
     _dateLabel.textColor = [UIColor whiteColor];
     
+    _timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 30, 300, 50)];
+    _timeLabel.textAlignment = NSTextAlignmentCenter;
+    _timeLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:15.0];
+    _timeLabel.text = time;
+    _timeLabel.textColor = [UIColor whiteColor];
+    
     
     _attendingPeopleLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 150, 350, 100)];
     _attendingPeopleLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:12.0];
@@ -108,12 +116,13 @@
     //[self addSubview:_attendingPeopleLabel];
     
     //Add partially transparent rectangle for date + user photos
-    transparentRect = [[UIView alloc] initWithFrame:CGRectMake(0, 10, 350, 40)];
+    transparentRect = [[UIView alloc] initWithFrame:CGRectMake(0, 10, 350, 60)];
     transparentRect.backgroundColor = [UIColor blackColor];
     transparentRect.alpha = 0.5;
     [self addSubview:transparentRect];
     
     [self addSubview:_dateLabel];
+    [self addSubview:_timeLabel];
     
     transparentRect2 = [[UIView alloc] initWithFrame:CGRectMake(0, 170, 350, 50)];
     transparentRect2.backgroundColor = [UIColor blackColor];

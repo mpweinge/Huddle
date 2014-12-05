@@ -19,12 +19,15 @@
   NSString *_inviteesString;
   NSString *_voteString;
   NSString *_eventString;
+  
+  NSString *_timeString;
 }
 
 -(instancetype) initWithDateString: (NSString *)date
                         voteString: (NSString *)votes
                        eventString: (NSString *)events
                      inviteeString: (NSString *)invitees
+                        timeString: (NSString *)time
 {
   self = [super init];
   
@@ -35,6 +38,7 @@
   _eventString = events;
   _voteString = votes;
   _inviteesString = invitees;
+  _timeString = time;
   
   _date = [dateFormatter dateFromString:date];
   
@@ -195,6 +199,11 @@
 -(NSString *)inviteesString
 {
   return _inviteesString;
+}
+
+-(NSString *)timeString
+{
+  return _timeString;
 }
 
 @end

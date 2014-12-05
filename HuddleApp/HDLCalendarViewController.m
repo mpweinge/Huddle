@@ -33,6 +33,8 @@
       self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc ] initWithImage:[UIImage imageNamed:@"ForwardIcon.png"] style:UIBarButtonItemStylePlain target:self action:@selector(nextClicked:)];
       
       self.view.backgroundColor = [UIColor whiteColor];
+      
+      _selectedTime = @"Morning";
     }
     return self;
 }
@@ -40,6 +42,12 @@
 -(void) nextClicked:(UIResponder *)responder
 {
   if (self.calendar.currentDateSelected) {
+    NSString * morningString = self.morningPressed ? @"Morning " : @"";
+    NSString * afternoonString = self.afternoonPressed ? @"Afternoon " : @"";
+    NSString * eveningString = self.eveningPressed ? @"Evening " : @"";
+    
+    _selectedTime = [NSString stringWithFormat:@"%@%@%@", morningString, afternoonString, eveningString];
+    
     HDLFriendSelectViewController * friendViewController = [[HDLFriendSelectViewController alloc] initWithDate: _selectedDate selectedTime: _selectedTime];
       [self.navigationController pushViewController:friendViewController animated:YES];
   }
