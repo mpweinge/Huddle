@@ -64,10 +64,15 @@
         self.calendar.calendarAppearance.ratioContentMenu = 1.;
     }
   
-  self.calendarMenuView = [[JTCalendarMenuView alloc] initWithFrame:CGRectMake(0, 0, 320, 50)];
+  // Screen bounds
+  CGRect screenRect = [[UIScreen mainScreen] bounds];
+  CGFloat screenWidth = screenRect.size.width;
+  //CGFloat screenHeight = screenRect.size.height;
+  
+  self.calendarMenuView = [[JTCalendarMenuView alloc] initWithFrame:CGRectMake(0, 0, screenWidth, 50)];
   self.calendarMenuView.calendarManager = self.calendar;
   
-  self.calendarContentView = [[JTCalendarContentView alloc] initWithFrame:CGRectMake(0, 55, 320, 300)];
+  self.calendarContentView = [[JTCalendarContentView alloc] initWithFrame:CGRectMake(0, 55, screenWidth, screenWidth)];
   self.calendarContentView.calendarManager = self.calendar;
   self.calendarContentView.showsHorizontalScrollIndicator = false;
   
@@ -79,15 +84,17 @@
   [self.calendar setDataSource:self];
   
   // Add horizontal line between calendar and time of day
-  UIView * separator = [[UIView alloc] initWithFrame:CGRectMake(0, 360, 320, 1)];
+  UIView * separator = [[UIView alloc] initWithFrame:CGRectMake(0, 55 + screenWidth, screenWidth, 1)];
   separator.backgroundColor = [UIColor colorWithWhite:0.7 alpha:1];
   [self.view addSubview:separator];
+  
+  int offset = 70 + screenWidth;
   
   // Buttons for time of day
   self.button1 = [UIButton buttonWithType:UIButtonTypeRoundedRect];
   [self.button1 addTarget:self action:@selector(morningPress) forControlEvents:UIControlEventTouchUpInside];
   [self.button1 setTitle:@"Morning" forState:UIControlStateNormal];
-  self.button1.frame = CGRectMake(80.0, 380.0, 160.0, 31.0);
+  self.button1.frame = CGRectMake(80.0, offset, 160.0, 31.0);
   [self.button1 setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
   //button.layer.borderColor =
   [self.view addSubview:self.button1];
@@ -95,7 +102,7 @@
   self.button2 = [UIButton buttonWithType:UIButtonTypeRoundedRect];
   [self.button2 addTarget:self action:@selector(afternoonPress) forControlEvents:UIControlEventTouchUpInside];
   [self.button2 setTitle:@"Afternoon" forState:UIControlStateNormal];
-  self.button2.frame = CGRectMake(80.0, 410, 160.0, 31.0);
+  self.button2.frame = CGRectMake(80.0, offset + 30, 160.0, 31.0);
   [self.button2 setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
   //button.layer.borderColor =
   [self.view addSubview:self.button2];
@@ -103,7 +110,7 @@
   self.button3 = [UIButton buttonWithType:UIButtonTypeRoundedRect];
   [self.button3 addTarget:self action:@selector(eveningPress) forControlEvents:UIControlEventTouchUpInside];
   [self.button3 setTitle:@"Evening" forState:UIControlStateNormal];
-  self.button3.frame = CGRectMake(80.0, 440, 160.0, 31.0);
+  self.button3.frame = CGRectMake(80.0, offset + 60, 160.0, 31.0);
   [self.button3 setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
   //button.layer.borderColor =
   [self.view addSubview:self.button3];
