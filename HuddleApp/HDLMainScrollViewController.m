@@ -127,15 +127,19 @@
   NSArray *paths = [mainTableView indexPathsForVisibleRows];
   
   BOOL bFoundCellToDelete = false;
+  NSIndexPath * pathToDelete = nil;
   for (NSIndexPath *path in paths) {
         if ([mainTableView cellForRowAtIndexPath:path] == cell) {
-          [mainTableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:path] withRowAnimation:UITableViewRowAnimationFade];
           bFoundCellToDelete = true;
+          pathToDelete = path;
         } else if (bFoundCellToDelete){
           HDLHomeScreenCell * cell = [mainTableView cellForRowAtIndexPath:path];
           [cell decrementRow];
         }
   }
+  
+   [mainTableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:pathToDelete] withRowAnimation:UITableViewRowAnimationFade];
+  
 }
 
 - (NSInteger) tableView: (UITableView *)tableView numberOfRowsInSection:(NSInteger)section

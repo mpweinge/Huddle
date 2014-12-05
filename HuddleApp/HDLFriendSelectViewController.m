@@ -81,7 +81,7 @@
 - (NSInteger) tableView: (UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
   //Hardcoded here
-  return 13;
+  return 12;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -127,50 +127,46 @@
       namePhotoURL = @"Facebook_NadavLidor.png";
       break;
     case 1:
-      name = @"Michael Weingert";
-      namePhotoURL = @"Facebook_MichaelWeingert.jpg";
-      break;
-    case 2:
       name = @"Joe Polin";
       namePhotoURL = @"Facebook_JoePolin.jpg";
       break;
-    case 3:
+    case 2:
       name = @"Brandon Evans";
       namePhotoURL = @"Facebook_BrandonEvans.jpg";
       break;
-    case 4:
+    case 3:
       name = @"James Stir";
       namePhotoURL = @"Facebook_RandomGuy.jpg";
       break;
-    case 5:
+    case 4:
       name = @"James Bond";
       namePhotoURL = @"Facebook_JamesBond.png";
       break;
-    case 6:
+    case 5:
       name = @"Miley Cyrus";
       namePhotoURL = @"Facebook_Miley.png";
       break;
-    case 7:
+    case 6:
       name = @"President Obama";
       namePhotoURL = @"Facebook_Obama.png";
       break;
-    case 8:
+    case 7:
       name = @"Brad Pitt";
       namePhotoURL = @"Facebook_BradPitt.png";
       break;
-    case 9:
+    case 8:
       name = @"Ban Ki-Moon";
       namePhotoURL = @"Facebook_BanKiMoon.png";
       break;
-    case 10:
+    case 9:
       name = @"Macklemore";
       namePhotoURL = @"Facebook_Macklemore.png";
       break;
-    case 11:
+    case 10:
       name = @"Amy Winehouse";
       namePhotoURL = @"Facebook_AmyWinehouse.png";
       break;
-    case 12:
+    case 11:
       name = @"John Hennessy";
       namePhotoURL = @"Facebook_JohnHennessy.png";
       break;

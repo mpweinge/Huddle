@@ -231,6 +231,10 @@
     dateLabelRect.origin.x -= deleteShift;
     _dateLabel.frame = dateLabelRect;
     
+    CGRect timeLabelRect = _timeLabel.frame;
+    timeLabelRect.origin.x -= deleteShift;
+    _timeLabel.frame = timeLabelRect;
+    
     CGPoint deleteCenter = deleteButton.center;
     deleteCenter.x -= 60;
     deleteButton.center = deleteCenter;
@@ -291,6 +295,11 @@
         CGPoint deleteCenter = deleteButton.center;
         deleteCenter.x += 60;
         deleteButton.center = deleteCenter;
+        
+        CGRect timeLabelRect = _timeLabel.frame;
+        timeLabelRect.origin.x += deleteShift;
+        _timeLabel.frame = timeLabelRect;
+        
       } completion:^(BOOL completion){
         
       }];
