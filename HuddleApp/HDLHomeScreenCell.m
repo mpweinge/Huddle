@@ -179,6 +179,9 @@
   UIScreen * currentScreen = [UIScreen screens][0];
   int centerOffset = ([currentScreen bounds].size.width - (totalPhotos * 50)) / 2;
   
+  if (centerOffset + 50 * numUserPhotos < 0)
+    return;
+  
   UIImageView *circleTest = [[UIImageView alloc] initWithFrame:CGRectMake(centerOffset + 50 * numUserPhotos, 175, 40, 40)];
   circleTest.image = [UIImage imageNamed:userImageTitle];
   circleTest.layer.cornerRadius = 20;

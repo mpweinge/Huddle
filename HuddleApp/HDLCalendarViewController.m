@@ -75,12 +75,12 @@
   // Screen bounds
   CGRect screenRect = [[UIScreen mainScreen] bounds];
   CGFloat screenWidth = screenRect.size.width;
-  //CGFloat screenHeight = screenRect.size.height;
+  CGFloat screenHeight = screenRect.size.height;
   
   self.calendarMenuView = [[JTCalendarMenuView alloc] initWithFrame:CGRectMake(0, 0, screenWidth, 50)];
   self.calendarMenuView.calendarManager = self.calendar;
   
-  self.calendarContentView = [[JTCalendarContentView alloc] initWithFrame:CGRectMake(0, 55, screenWidth, screenWidth)];
+  self.calendarContentView = [[JTCalendarContentView alloc] initWithFrame:CGRectMake(0, 55, screenWidth, screenHeight * 0.5)];
   self.calendarContentView.calendarManager = self.calendar;
   self.calendarContentView.showsHorizontalScrollIndicator = false;
   
@@ -92,11 +92,11 @@
   [self.calendar setDataSource:self];
   
   // Add horizontal line between calendar and time of day
-  UIView * separator = [[UIView alloc] initWithFrame:CGRectMake(0, 55 + screenWidth, screenWidth, 1)];
+  UIView * separator = [[UIView alloc] initWithFrame:CGRectMake(0, 55 + 0.5*screenHeight, screenWidth, 1)];
   separator.backgroundColor = [UIColor colorWithWhite:0.7 alpha:1];
   [self.view addSubview:separator];
   
-  int offset = 70 + screenWidth;
+  int offset = 70 + 0.5*screenHeight;
   
   // Buttons for time of day
   self.button1 = [UIButton buttonWithType:UIButtonTypeRoundedRect];

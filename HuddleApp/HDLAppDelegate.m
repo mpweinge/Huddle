@@ -20,7 +20,7 @@
   HDLMainScrollViewController * mainScrollController = [[HDLMainScrollViewController alloc] init];
   
   UINavigationController * navigationController = [[UINavigationController alloc] initWithRootViewController:mainScrollController];
-  
+
   navigationController.navigationBar.barTintColor = titleHuddleColor;
   navigationController.navigationBar.translucent = NO;
   

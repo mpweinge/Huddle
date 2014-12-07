@@ -89,11 +89,17 @@
   
   //TODO: Add user photos here
   NSArray * selectInvitees = [currHuddle invitees];
-  for (int i = 0; i < [selectInvitees count]; i++)
+  int photoCount = [selectInvitees count];
+  if ([selectInvitees[photoCount-1] rangeOfString:@"."].location == NSNotFound)
+  {
+    photoCount--;
+  }
+  
+  for (int i = 0; i < photoCount; i++)
   {
     NSString * currInvitee = selectInvitees[i];
     currInvitee = [currInvitee stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-    [newCell addUserCircle:currInvitee  withTotalPhotos:[selectInvitees count]];
+    [newCell addUserCircle:currInvitee  withTotalPhotos:photoCount];
   }
   
   newCell.delegate = self;

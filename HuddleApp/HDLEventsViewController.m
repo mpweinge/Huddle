@@ -87,7 +87,7 @@ const int MAX_VOTES = 5;
     
     _numInvitees = [[huddle invitees] count];
     
-    if (_numVotes > _numInvitees)
+    if (_numVotes >= _numInvitees)
     {
       [_voteTimer invalidate];
       _voteTimer = nil;
@@ -237,7 +237,7 @@ const int MAX_VOTES = 5;
     
     for ( NSString * voteOneStrings in _voteOne)
     {
-      NSRange meRange = [voteOneStrings rangeOfString:@"me"];
+      NSRange meRange = [voteOneStrings rangeOfString:@"me.png"];
       if (meRange.location == NSNotFound)
       {
         [newCell addUserPhoto: [voteOneStrings stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
@@ -257,7 +257,7 @@ const int MAX_VOTES = 5;
     
     for ( NSString * voteOneStrings in _voteTwo)
     {
-      NSRange meRange = [voteOneStrings rangeOfString:@"me"];
+      NSRange meRange = [voteOneStrings rangeOfString:@"me.png"];
       if (meRange.location == NSNotFound)
       {
         [newCell addUserPhoto: [voteOneStrings stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
@@ -277,7 +277,7 @@ const int MAX_VOTES = 5;
     
     for ( NSString * voteOneStrings in _voteThree)
     {
-      NSRange meRange = [voteOneStrings rangeOfString:@"me"];
+      NSRange meRange = [voteOneStrings rangeOfString:@"me.png"];
       if (meRange.location == NSNotFound)
       {
         [newCell addUserPhoto: [voteOneStrings stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
